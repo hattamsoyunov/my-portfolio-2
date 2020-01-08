@@ -1,0 +1,154 @@
+@import sass/variables.sass
+@import sass/mixins.sass
+@import "bootstrap/scss/mixins/_grid.scss"
+
+
+.work-experience
+	padding: 67px 0 90px
+
+	&__title
+		margin-bottom: 78px
+
+	&__row
+
+
+
+
+// Timeline
+.timeline
+	+make-row()
+	// &__col
+
+
+
+
+.timeline-item
+	position: relative
+	+make-col(6)
+	display: flex
+	flex-direction: column
+	padding: 34px 0
+	z-index: 1
+	&:before
+		content: ''
+		position: absolute
+		top: 50%
+		width: 20px
+		height: 20px
+		border: 2px solid $c1
+		border-radius: 50%
+		transform: translateY(-50%)
+		background: lighten($c0, 5%)
+		transition: background .4s ease, transform .4s cubic-bezier(0.18, 0.89, 0.48, 2.01)
+		z-index: -1
+	&:after
+		content: ''
+		position: absolute
+		top: 0
+		width: 2px
+		height: 100%
+		background: $c2
+		z-index: -2
+
+	&__date
+		font-size: 18px
+		line-height: 23px
+		color: $c2
+		margin-bottom: 5px
+		transition: all .4s ease
+
+	&__title
+		color: $c1
+		margin: 0 0 10px
+		transition: all .4s ease .1s
+
+	&__company
+		position: relative
+		font-size: 20px
+		line-height: 26px
+		padding-left: 17px
+		transition: all .4s ease .17s
+		&:before
+			content: ''
+			position: absolute
+			top: 11px
+			left: 0
+			width: 7px
+			height: 7px
+			border-radius: 50%
+			background: $c2
+
+	&__start-dot
+		position: absolute
+		bottom: -8px
+		left: -6px
+		width: 12px
+		height: 12px
+		background: $c1
+		border-radius: 50%
+
+	&__start-line
+		position: absolute
+		top: 50%
+		left: -1px
+		width: 2px
+		height: 50%
+		+gradient_y($c2, $c1)
+		z-index: -2
+	
+	&__last-line
+		position: absolute
+		bottom: 50%
+		left: -1px
+		width: 2px
+		height: 50%
+		+gradient_y(transparent, $c2)
+		z-index: -2
+
+	&:first-child
+		&:before
+			background: $c1
+		&:after
+			top: auto
+			bottom: 0
+			height: 50%
+	
+	&:last-child
+		&:after
+			height: 50%
+
+	&:nth-child(odd)
+		+make-col-offset(6)
+		padding-left: 50px
+		&:before
+			left: -10px
+		&:after
+			left: -1px
+
+	&:nth-child(even)
+		align-items: flex-end
+		padding-right: 50px
+		&:before
+			right: -10px
+		&:after
+			right: -1px
+
+	// Hover
+	&:hover
+		&:before
+			background: $c1
+			transform: translateY(-50%) scale(1.1)
+		
+		&:nth-child(odd)
+			.timeline-item
+				&__date,
+				&__title,
+				&__company
+					transform: translateX(-7px)
+		
+		&:nth-child(even)
+			.timeline-item
+				&__date,
+				&__title,
+				&__company
+					transform: translateX(7px)

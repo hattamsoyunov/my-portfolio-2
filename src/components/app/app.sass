@@ -1,0 +1,232 @@
+@import ../../sass/variables.sass
+@import ../../sass/mixins.sass
+
+// @import "bootstrap/scss/bootstrap-reboot.scss"
+// @import "bootstrap/scss/bootstrap-grid.scss"
+@import "bootstrap/scss/mixins/_grid.scss"
+
+
+////////// Fonts
++font-face("FuturaPT", "./../fonts/FuturaPT-Medium/FuturaPT-Medium", 500, normal)
++font-face("FuturaPT", "./../fonts/FuturaPT-Demi/FuturaPT-Demi", 600, normal)
++font-face("FuturaPT", "./../fonts/FuturaPT-Bold/FuturaPT-Bold", 700, normal)
+
+
+////////// Reset & Base
+*,
+*:before,
+*:after
+	box-sizing: border-box
+
+html
+	height: 100vh
+	font-family: sans-serif
+	-webkit-font-smoothing: antialiased
+	-webkit-text-size-adjust: 100%
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+
+body
+	position: relative
+	min-width: 320px
+	// height: 100vh
+	font-family: $def_font
+	+def_text
+	color: $c5
+	margin: 0
+	background: $c0
+	z-index: 1
+	&:before
+		content: ''
+		position: fixed
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background: url(../../img/def_bg.jpg) no-repeat center center
+		background-size: cover
+		opacity: 0.4
+		z-index: -1
+
+button
+	font-family: $def_font
+	padding: 0
+	border: none
+	background: none
+
+img
+	max-width: 100%
+	height: auto
+
+
+
+////////// Typography
+h1
+	font-size: 64px
+	line-height: 82px
+	font-weight: 600
+
+h2
+	font-size: 64px
+	line-height: 82px
+	font-weight: 700
+	&[class*="__title"]
+		position: relative
+		text-align: center
+		z-index: 1
+		&:before
+			content: attr(data-title)
+			position: absolute
+			bottom: -6px
+			left: 50%
+			font-size: 144px
+			line-height: 144px
+			color: rgba($c2, .1)
+			white-space: nowrap
+			transform: translateX(-50%)
+			z-index: -1
+
+h3
+	font-size: 36px
+	line-height: 46px
+	font-weight: 500
+
+ul
+	list-style: none
+	margin: 0
+	padding: 0
+
+a
+	text-decoration: none
+
+
+
+////////// Grid
+.container
+	margin: 0 11vw
+	// border: 1px solid red
+
+.bg-lines
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	display: flex
+	justify-content: space-between
+	padding-left: 11vw
+	padding-right: 11vw
+	opacity: .15
+	z-index: -1
+	div
+		width: 1px
+		height: 100%
+		&:nth-child(1),
+		&:nth-child(3)
+			+gradient-y($c5, transparent)
+		&:nth-child(2)
+			+gradient-y(transparent, $c5)
+
+
+
+////////// Common
+.scroll-btn
+	display: inline-flex
+	flex-direction: column
+	align-items: center
+	justify-content: center
+	&:hover,
+	&:focus
+		cursor: pointer
+		outline: none
+		.scroll-btn__dot
+				background: $c1
+	&:active
+		.scroll-btn
+			&__text
+				color: $c1
+
+	&__icon
+		width: 19px
+		height: 12px
+		transition: all .6s ease
+		transition-delay: .2s
+	&__dot
+		width: 9px
+		height: 9px
+		border-radius: 50%
+		background: $c5
+		transition: all .6s ease
+	&__text
+		font-size: 14px
+		line-height: 18px
+		font-weight: 500
+		color: $c3
+		transition: all .1s ease
+		user-select: none
+
+	// Mods
+	&--totop
+		.scroll-btn
+			&__icon
+				margin-bottom: 15px
+			&__dot
+				margin-bottom: 10px
+
+		&:hover,
+		&:focus
+			.scroll-btn
+				&__icon
+					transform: translateY(-5px)
+				&__dot
+					transform: translateY(-3px)
+
+	&--next
+		position: absolute
+		bottom: 50px
+		left: 50%
+		transform: translateX(-50%)
+		.scroll-btn
+			&__icon
+				order: 3
+				img
+					transform: rotate(180deg) translateY(6px)
+			&__dot
+				order: 2
+				margin-bottom: 15px
+			&__text
+				order: 1
+				margin-bottom: 10px
+		
+		&:hover,
+		&:focus
+			.scroll-btn
+				&__icon
+					transform: translateY(5px)
+				&__dot
+					transform: translateY(3px)
+
+// Button
+.btn
+	display: inline-flex
+	align-items: center
+	font-size: 24px
+	line-height: 24px
+	color: #fff
+	transition: all .4s ease
+	.icon
+		width: 31px
+		height: 22px
+		fill: #ffffff
+		margin-right: 20px
+		transition: all .4s ease
+	
+	&:hover,
+	&:focus
+		outline: none
+		text-decoration: none
+		.icon
+			fill: $c1
+			transform: translateX(5px)
+
+	&:active
+		color: $c1

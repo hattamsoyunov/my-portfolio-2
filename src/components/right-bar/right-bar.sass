@@ -1,0 +1,84 @@
+@import ../../sass/variables.sass
+@import ../../sass/mixins.sass
+@import ../../sass/hamburgers/hamburgers.scss
+
+
+.right-bar
+	position: fixed
+	top: 0
+	right: 0
+	width: 11vw
+	height: 100vh
+	display: flex
+	flex-direction: column
+	align-items: flex-end
+	justify-content: space-between
+	padding: 50px 50px 50px 0
+	z-index: 11
+
+
+////////// Indicator
+.section-indicator
+	position: relative
+	height: 25px
+	margin-top: 90px
+	transform: rotate(-90deg) translateY(51px)
+	transition: all .4s ease
+	overflow: hidden
+	&__list
+		transition: all .4s ease
+
+	&__item
+		display: block
+		white-space: nowrap
+		font-size: 18px
+		line-height: 20px
+		text-align: center
+		height: 25px
+
+
+////////// Hamburger
+.hamburger
+	margin-top: 5px
+	&:focus
+		outline: none
+	&-inner,
+	&-inner:before,
+	&-inner:after
+		transition: all .4s ease !important
+
+
+.hamburger:not(.is-active)
+	.hamburger-inner
+		&:before
+			width: 18px
+			left: auto
+			right: 0
+		&:after
+			width: 24px
+			left: auto
+			right: 0
+	
+	&:hover
+		.hamburger-inner
+			&:before,
+			&:after
+				width: 30px
+
+
+////////// Socs
+.socs
+	&__list
+		display: flex
+		flex-direction: column
+		align-items: center
+		margin-bottom: -7px
+	&__item
+		margin-bottom: 7px
+	&__link
+		font-size: 24px
+		line-height: 24px
+		color: $c5
+		transition: all .4s ease
+		&:hover
+			color: $c1
