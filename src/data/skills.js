@@ -12,7 +12,7 @@ const skills = [
 	{
 		// title: 'JavaScript',
 		icon: 'img/skills/javascript.svg',
-		percent: 65,
+		percent: 70,
 	},
 	{
 		// title: 'jQuery',

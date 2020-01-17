@@ -4,10 +4,10 @@
 
 
 .work-experience
-	padding: 67px 0 90px
+	padding: 77px 0 110px
 
 	&__title
-		margin-bottom: 78px
+		margin-bottom: 110px
 
 	&__row
 
@@ -38,7 +38,7 @@
 		border: 2px solid $c1
 		border-radius: 50%
 		transform: translateY(-50%)
-		background: lighten($c0, 5%)
+		background: lighten($c0, 3%)
 		transition: background .4s ease, transform .4s cubic-bezier(0.18, 0.89, 0.48, 2.01)
 		z-index: -1
 	&:after
@@ -55,19 +55,19 @@
 		line-height: 23px
 		color: $c2
 		margin-bottom: 5px
-		transition: all .4s ease
+		transition: all .6s ease
 
 	&__title
 		color: $c1
 		margin: 0 0 10px
-		transition: all .4s ease .1s
+		transition: all .6s ease .1s
 
 	&__company
 		position: relative
 		font-size: 20px
 		line-height: 26px
 		padding-left: 17px
-		transition: all .4s ease .17s
+		transition: all .6s ease .17s
 		&:before
 			content: ''
 			position: absolute
@@ -138,14 +138,12 @@
 		&:before
 			background: $c1
 			transform: translateY(-50%) scale(1.1)
-		
 		&:nth-child(odd)
 			.timeline-item
 				&__date,
 				&__title,
 				&__company
 					transform: translateX(-7px)
-		
 		&:nth-child(even)
 			.timeline-item
 				&__date,

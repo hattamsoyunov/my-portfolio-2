@@ -6,24 +6,24 @@
 *
 	cursor: none !important
 
-.cursor
-	position: fixed
-	top: -17.5px
-	left: -17.5px
-	width: 35px
-	height: 35px
-	display: flex
-	align-items: center
-	justify-content: center
-	mix-blend-mode: difference
-	pointer-events: none
-	z-index: 100
-	&__circle
-		width: 100%
-		height: 100%
-		border-radius: 50%
-		border: 2px solid $c5
-		transition: all .5s ease
+// .cursor
+// 	position: fixed
+// 	top: -17.5px
+// 	left: -17.5px
+// 	width: 35px
+// 	height: 35px
+// 	display: flex
+// 	align-items: center
+// 	justify-content: center
+// 	mix-blend-mode: difference
+// 	pointer-events: none
+// 	z-index: 100
+// 	&__circle
+// 		width: 100%
+// 		height: 100%
+// 		border-radius: 50%
+// 		border: 2px solid $c5
+// 		transition: all .5s ease
 
 // .cursor
 // 	&__dot
@@ -47,3 +47,44 @@
 // 		transition: transform .05s linear
 // 		pointer-events: none
 // 		z-index: 100
+
+
+
+.cursor
+	&__dot
+		position: fixed
+		top: -4px
+		left: -4px
+		width: 8px
+		height: 8px
+		pointer-events: none
+		mix-blend-mode: difference
+		transform: scale(1)
+		background: $c1
+		border-radius: 50%
+		// transition: 0.3s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity
+		z-index: 100
+		&.active
+			opacity: 0.5
+			transform: scale(0)
+		&.hovered
+			opacity: 0.08
+
+	&__circle
+		position: fixed
+		top: -15px
+		left: -15px
+		width: 30px
+		height: 30px
+		pointer-events: none
+		border-radius: 60%
+		border: 1px solid $c5
+		// transition: 0.6s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform, 0.2s cubic-bezier(0.75, -0.27, 0.3, 1.33) opacity
+		// transform: translate(5px, 5px)
+		mix-blend-mode: difference
+		z-index: 90
+		&.active
+			opacity: 0.7
+			transform: scale(3)
+		&.hovered
+			opacity: 0.08

@@ -7,9 +7,11 @@
 
 
 ////////// Fonts
++font-face("FuturaPT", "./../fonts/FuturaPT-Book/FuturaPT-Book", normal, normal)
 +font-face("FuturaPT", "./../fonts/FuturaPT-Medium/FuturaPT-Medium", 500, normal)
 +font-face("FuturaPT", "./../fonts/FuturaPT-Demi/FuturaPT-Demi", 600, normal)
 +font-face("FuturaPT", "./../fonts/FuturaPT-Bold/FuturaPT-Bold", 700, normal)
++font-face("FuturaPT", "./../fonts/FuturaPT-ExtraBold/FuturaPT-ExtraBold", 900, normal)
 
 
 ////////// Reset & Base
@@ -90,6 +92,12 @@ h3
 	line-height: 46px
 	font-weight: 500
 
+h4
+	font-size: 24px
+	line-height: 31px
+	font-weight: 700
+	margin: 40px 0 15px
+
 ul
 	list-style: none
 	margin: 0
@@ -128,7 +136,47 @@ a
 
 
 
+
+////////// Page layout
+.page-layout
+	// padding: 240px 0 0
+	[class*="__title"]
+		margin-bottom: 90px
+
+
+
+
 ////////// Common
+// .page-transition
+// 	position: fixed
+// 	top: 0
+// 	left: -100%
+// 	width: 100%
+// 	height: 100%
+// 	background: rgba($c5, .6)
+// 	pointer-events: none
+// 	transition: all .4s ease
+// 	z-index: 100
+// 	&.active
+// 		left: 0
+
+.my-node-exit
+	opacity: 1
+	// transform: translateY(-100px)
+.my-node-exit-active
+	opacity: 0
+	// transform: translateY(0)
+	transition: all .3s
+
+.my-node-enter
+	opacity: 0
+	// transform: translateY(100px)
+.my-node-enter-active
+	opacity: 1
+	// transform: translateY(0)
+	transition: all .3s
+
+
 .scroll-btn
 	display: inline-flex
 	flex-direction: column
@@ -148,29 +196,36 @@ a
 	&__icon
 		width: 19px
 		height: 12px
-		transition: all .6s ease
-		transition-delay: .2s
 	&__dot
 		width: 9px
 		height: 9px
 		border-radius: 50%
 		background: $c5
-		transition: all .6s ease
+		transition: background .6s ease
 	&__text
+		position: relative
 		font-size: 14px
 		line-height: 18px
 		font-weight: 500
 		color: $c3
-		transition: all .1s ease
+		// transition: all .1s ease
 		user-select: none
+		&-overlay
+			position: absolute
+			top: 0
+			left: 0
+			color: $c1
 
 	// Mods
 	&--totop
 		.scroll-btn
 			&__icon
-				margin-bottom: 15px
+				margin-bottom: 10px
+				transition: all .6s ease
+				transition-delay: .2s
 			&__dot
 				margin-bottom: 10px
+				transition: all .6s ease
 
 		&:hover,
 		&:focus
@@ -196,14 +251,14 @@ a
 			&__text
 				order: 1
 				margin-bottom: 10px
-		
+
 		&:hover,
 		&:focus
-			.scroll-btn
-				&__icon
-					transform: translateY(5px)
-				&__dot
-					transform: translateY(3px)
+			// .scroll-btn
+			// 	&__icon
+			// 		transform: translateY(5px)
+			// 	&__dot
+			// 		transform: translateY(3px)
 
 // Button
 .btn
@@ -212,20 +267,22 @@ a
 	font-size: 24px
 	line-height: 24px
 	color: #fff
-	transition: all .4s ease
+	transition: all .7s ease
 	.icon
 		width: 31px
 		height: 22px
-		fill: #ffffff
+		fill: $c1
 		margin-right: 20px
-		transition: all .4s ease
+		transition: all .7s ease
+		title
+			display: none
+			pointer-events: none
 	
 	&:hover,
 	&:focus
 		outline: none
 		text-decoration: none
 		.icon
-			fill: $c1
 			transform: translateX(5px)
 
 	&:active

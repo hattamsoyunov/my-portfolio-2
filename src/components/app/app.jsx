@@ -1,40 +1,46 @@
 import React from 'react';
-// import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import './app.sass';
 
 import LeftBar from './../left-bar';
-import Main from './../pages/home/main';
 import Menu from './../menu';
 import Cursor from '../cursor';
 import RightBar from './../right-bar';
-import Skills from '../pages/home/skills';
-import WorkExperience from '../pages/home/work-experience';
-import RecentlyProjects from '../pages/home/recently-projects';
+import Footer from 'components/footer';
+import Home from 'components/pages/home';
+import Project from 'components/pages/project';
+import NotFound from 'components/pages/not-found';
 
-function App() {
+function App(props) {
 	return (
-		<main className="main-page">
-			<div className="bg-lines">
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-
+		<div>
+			<div className="bg-lines"><div></div><div></div><div></div></div>
 			<LeftBar />
-		
-			<Main />
-			<Skills />
-			<WorkExperience />
-			<RecentlyProjects limit={6} step={3}/>
-
 			<RightBar />
-				
 			<Menu />
 
+			{/* <Switch>
+				<Route exact path="/" component={Home} />
+				<Route path="/projects/:slug" component={Project} />
+				<Route component={NotFound} />
+			</Switch> */}
+
+			<TransitionGroup>
+				<CSSTransition key={props.location.key} timeout={300} classNames="my-node" mountOnEnter={true} unmountOnExit={true}>
+					<Switch location={props.location}>
+						<Route exact path="/" component={Home} />
+						<Route path="/projects/:slug" component={Project} />
+						<Route component={NotFound} />
+					</Switch>
+				</CSSTransition>
+			</TransitionGroup>
+
 			<Cursor />
-		</main>
-	);
+			<Footer />
+		</div>
+	)
 }
 
-export default App;
+export default withRouter(App);

@@ -20,17 +20,35 @@
 		text-align: center
 	&__item
 		opacity: 0
-		margin-bottom: 31px
+		margin-bottom: 20px
+		&:last-child
+			margin-bottom: 0
 
 	&__link
+		position: relative
 		font-size: 48px
 		line-height: 62px
-		font-weight: 500
+		font-weight: 700
 		color: $c5
 		letter-spacing: 1px
 		transition: color .6s ease
-		&:hover
+		&:before
+			content: ''
+			position: absolute
+			bottom: 40px
+			right: -16px
+			width: 9px
+			height: 9px
+			border-radius: 50%
+			background: transparent
+			transition: all 0.4s cubic-bezier(0.18, 0.89, 0.25, 1.39)
+		&:hover,
+		&--active
 			color: $c1
+			&:before
+				transform: translateY(27px)
+				background: $c1
+
 
 	&__hovered
 		position: absolute

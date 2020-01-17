@@ -1,0 +1,52 @@
+@import sass/variables.sass
+@import sass/mixins.sass
+@import "bootstrap/scss/mixins/_grid.scss"
+
+
+.about
+	padding: 100px 0 60px
+
+	&__content
+		max-width: 1140px
+		margin: 0 auto
+		font-size: 24px
+		line-height: 33px
+		font-weight: 400
+		color: rgba(#fff, .9)
+
+		h4
+			color: $c1
+
+		ul
+			li
+				position: relative
+				padding-left: 23px
+				margin-bottom: 8px
+				&:before
+					content: ''
+					position: absolute
+					top: 13px
+					left: 0
+					width: 6px
+					height: 6px
+					border-radius: 50%
+					background: $c1
+
+		strong
+			font-weight: 600
+
+		a
+			position: relative
+			color: $c1
+			&:before
+				content: ''
+				position: absolute
+				bottom: 0
+				left: 0
+				width: 0
+				height: 1px
+				background: $c1
+				transition: all .6s ease
+			&:hover
+				&:before
+					width: 100%

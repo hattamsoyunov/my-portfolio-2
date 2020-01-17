@@ -36,7 +36,7 @@ class Skills extends React.Component {
 		// 	});
 		// }
 	// }
-	
+
 	render() {
 		return (
 			<section className="skills">

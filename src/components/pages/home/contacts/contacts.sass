@@ -1,0 +1,37 @@
+@import ../../../../sass/variables.sass
+@import ../../../../sass/mixins.sass
+@import "bootstrap/scss/mixins/_grid.scss"
+
+
+.contacts
+	padding: 60px 0 130px
+
+	&__row
+		display: flex
+		text-align: center
+		flex-direction: column
+		align-items: center
+
+	&__title
+		margin-bottom: 40px
+	
+	&__subtitle
+		margin-bottom: 20px
+		color: $c1
+
+	&__list
+		display: flex
+		align-items: center
+	&__item
+		margin-right: 25px
+		&:last-child
+			margin-right: 0
+	&__link
+		display: block
+		font-size: 35px
+		line-height: 35px
+		color: $c5
+		transition: all .6s ease
+		&:hover
+			color: $c1
+			transform: translateY(-2px)

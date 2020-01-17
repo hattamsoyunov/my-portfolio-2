@@ -1,6 +1,7 @@
 import React from 'react'
 import { ReactSVG } from 'react-svg';
 import PropTypes from 'prop-types';
+import VanillaTilt from 'vanilla-tilt';
 
 import ProjectCard from './project-card';
 
@@ -9,16 +10,57 @@ import projects from 'data/projects';
 import arrowRight from 'img/icons/arrow_right.svg';
 
 class RecentlyProjects extends React.Component {
-	constructor({limit, step}, props) {
+	constructor({props, limit, step}) {
 		super(props);
 		
 		this.state = {
-			projects: projects,
-			limit: limit,
-			step: step
+			projects,
+			limit,
+			step
 		};
 
 		this.handleLoadMore = this.handleLoadMore.bind(this);
+
+		this.projectsContainer = React.createRef();
+	}
+
+	setOffsets() {
+		const items = this.projectsContainer.current.querySelectorAll('.recently-projects__col');
+		let n = 3;
+
+		for (let i = 0; i < items.length; i++) {
+			
+			if( i+1 === n) {
+				items[i].classList.add('recently-projects__col--offset');
+				
+				if (items[i+1] !== undefined) {
+					items[i+1].classList.add('recently-projects__col--offset');
+				}
+				
+				n += 4;
+			}
+		};
+	}
+
+	perspectiveCard() {
+		var cards = this.projectsContainer.current.querySelectorAll('.project-item');
+
+		VanillaTilt.init(cards, {
+			max: 8,
+			speed: 2000,
+			glare: true,
+			"max-glare": .15,
+		});
+	}
+
+	componentDidUpdate() {
+		this.setOffsets();
+		this.perspectiveCard();
+	}
+
+	componentDidMount() {
+		this.setOffsets();
+		this.perspectiveCard();
 	}
 
 	handleLoadMore() {
@@ -31,7 +73,7 @@ class RecentlyProjects extends React.Component {
 				<div className="container">
 					<h2 className="recently-projects__title" data-title="Recently Projects">Recently Projects</h2>
 
-					<div className="recently-projects__row">
+					<div className="recently-projects__row" ref={this.projectsContainer}>
 						{this.state.projects
 						.slice(0, this.state.limit)
 						.map(({ id, title, toolsList, slug, preview }, index) => (
@@ -46,7 +88,7 @@ class RecentlyProjects extends React.Component {
 						))}
 					</div>
 
-					<div className="recently-projects__row">
+					<div className="recently-projects__bottom">
 						{this.state.limit >= this.state.projects.length ? ('') : (
 							<button
 								className="btn recently-projects__btn"
