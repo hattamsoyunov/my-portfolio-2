@@ -1,54 +1,64 @@
 const skills = [
 	{
-		// title: 'HTML',
+		title: 'HTML',
 		icon: 'img/skills/html5.svg',
-		percent: 100,
+		percent: 100
 	},
 	{
-		// title: 'CSS',
+		title: 'CSS',
 		icon: 'img/skills/css3.svg',
-		percent: 100,
+		percent: 100
 	},
 	{
-		// title: 'JavaScript',
+		title: 'JavaScript',
 		icon: 'img/skills/javascript.svg',
-		percent: 70,
+		percent: 80
 	},
 	{
-		// title: 'jQuery',
-		icon: 'img/skills/jQuery.svg',
-		percent: 95,
-	},
-	{
-		// title: 'React.js',
+		title: 'React.js (Redux)',
 		icon: 'img/skills/reactjs.svg',
-		percent: 40,
+		percent: 65
 	},
 	{
-		// title: 'MODX Revo',
+		title: 'Meteor.js',
+		icon: 'img/skills/meteorjs.svg',
+		percent: 20
+	},
+	{
+		title: 'jQuery',
+		icon: 'img/skills/jQuery.svg',
+		percent: 95
+	},
+	{
+		title: 'MODX Revo',
 		icon: 'img/skills/modx.svg',
-		percent: 65,
+		percent: 65
 	},
 	{
-		// title: 'Figma',
+		title: 'Figma',
 		icon: 'img/skills/figma.svg',
-		percent: 90,
+		percent: 90
 	},
 	{
-		// title: 'Adobe XD',
+		title: 'Zeplin',
+		icon: 'img/skills/zeplin.svg',
+		percent: 100
+	},
+	{
+		title: 'Adobe XD',
 		icon: 'img/skills/xd.svg',
-		percent: 90,
+		percent: 90
 	},
 	{
-		// title: 'Photoshop',
+		title: 'Photoshop',
 		icon: 'img/skills/photoshop.svg',
-		percent: 99,
+		percent: 99
 	},
 	{
-		// title: 'Illustrator',
+		title: 'Illustrator',
 		icon: 'img/skills/illustrator.svg',
-		percent: 85,
-	},
+		percent: 85
+	}
 ];
 
 export default skills;

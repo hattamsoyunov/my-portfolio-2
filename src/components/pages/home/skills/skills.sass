@@ -1,5 +1,5 @@
-@import ../../../../sass/variables.sass
-@import ../../../../sass/mixins.sass
+@import sass/variables.sass
+@import sass/mixins.sass
 @import "bootstrap/scss/mixins/_grid.scss"
 
 
@@ -16,6 +16,7 @@
 
 	&__row
 		+make-row()
+		justify-content: center
 		margin-left: -40px
 		margin-right: -40px
 
@@ -33,13 +34,17 @@
 	flex-direction: column
 	align-items: center
 	justify-content: center
-	margin-bottom: 110px
+	margin-bottom: 80px
 	transition: all .6s ease
 	&:hover
 		transform: translateY(-4px)
-		.skill-item__progress
-			background: rgba($c2, .6)
-			transform: translateY(-3px)
+		.skill-item
+			&__title
+				opacity: 1
+				transform: translateY(-6px)
+			&__progress
+				background: rgba($c2, .6)
+				transform: translateY(-3px)
 
 	&__img-wrap
 		height: 80px
@@ -49,6 +54,12 @@
 			width: auto
 			height: 100%
 			margin: 0 auto
+
+	&__title
+		opacity: 0
+		transition: all .6s ease
+	&__progress
+		margin-bottom: 10px
 
 
 

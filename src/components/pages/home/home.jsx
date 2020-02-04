@@ -4,7 +4,7 @@ import gsap from 'gsap';
 import { connect } from 'react-redux';
 
 import { setMainSections } from 'actions';
-	
+
 import Main from './main';
 import About from './about';
 import Skills from './skills';
@@ -15,29 +15,34 @@ import Contacts from './contacts';
 class Home extends React.Component {
 	constructor(props) {
 		super(props);
-		
+
 		this.scrollListener = null;
 		this.mainPageContainer = React.createRef();
 	}
-	
+
 	componentDidMount() {
 		let scrollY = 0;
 		let centerOffset = 0;
 		const nav = store.getState().sectIndicators;
 		const items = nav.querySelectorAll('.section-indicator__item');
-		
+
 		this.scrollListener = () => {
 			scrollY = window.scrollY;
 			centerOffset = window.innerHeight / 2 - 100;
 
 			items.forEach((item, index) => {
-				let section = document.querySelector(`.${item.getAttribute('sect-id')}`);
+				let section = document.querySelector(
+					`.${item.getAttribute('sect-id')}`
+				);
 
-				if (section.offsetTop - centerOffset <= scrollY && (section.offsetTop - centerOffset) + section.offsetHeight > scrollY) {
-					item.classList.add("current");
-					gsap.set(nav, { y: -25 * index })
+				if (
+					section.offsetTop - centerOffset <= scrollY &&
+					section.offsetTop - centerOffset + section.offsetHeight > scrollY
+				) {
+					item.classList.add('current');
+					gsap.set(nav, { y: -25 * index });
 				} else {
-					item.classList.remove("current");
+					item.classList.remove('current');
 				}
 			});
 		};
@@ -48,7 +53,7 @@ class Home extends React.Component {
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener('scroll', this.scrollListener)
+		window.removeEventListener('scroll', this.scrollListener);
 	}
 
 	render() {
@@ -61,7 +66,7 @@ class Home extends React.Component {
 				<RecentlyProjects limit={6} step={4} />
 				<Contacts />
 			</main>
-		)
+		);
 	}
 }
 

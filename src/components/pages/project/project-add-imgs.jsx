@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 function ProjectAddImgs(props) {
 	const images = [];
 
@@ -11,21 +10,20 @@ function ProjectAddImgs(props) {
 				<img
 					src={`../images/projects/${props.project.slug}/add_img_${i + 1}.jpg`}
 					alt=""
-					onLoad={(e) => e.currentTarget.style.opacity = 1}
+					onLoad={e => (e.currentTarget.style.opacity = 1)}
 				/>
 			</div>
-		)
+		);
 	}
-	
-	return (
-		<section className="project-add-imgs">
-			<div className="container">
-				{images}
-			</div>
-		</section>
-	)
-}
 
+	return props.project.addImagesQty > 0 ? (
+		<section className="project-add-imgs">
+			<div className="container">{images}</div>
+		</section>
+	) : (
+		false
+	);
+}
 
 ProjectAddImgs.propTypes = {
 	project: PropTypes.shape({

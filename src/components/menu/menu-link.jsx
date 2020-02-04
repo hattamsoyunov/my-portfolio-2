@@ -1,19 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { toggleMenu } from './../../actions';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-function MenuLink({ children, toggleMenu, ...rest }) {
-	return (
-		<NavLink
-			className="menu__link"
-			activeClassName="menu__link--active"
-			onClick={toggleMenu}
-			{...rest}
-		>
+function MenuLink({ children, isHome, goToSect, to, toggleMenu, ...rest }) {
+	return isHome ? (
+		<Link onClick={goToSect} to={to} {...rest}>
 			{children}
-		</NavLink>
+		</Link>
+	) : (
+		<Link to={`/${to}`} onClick={toggleMenu} {...rest}>
+			{children}
+		</Link>
 	);
 }
 
-export default connect(null, { toggleMenu })(MenuLink);
+export default MenuLink;

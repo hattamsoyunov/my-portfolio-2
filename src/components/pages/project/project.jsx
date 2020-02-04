@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 
 import './project.sass';
 
-import projects from 'data/projects.js'
+import projects from 'data/projects.js';
 import ProjectMain from './project-main';
 import ProjectAddImgs from './project-add-imgs';
+import ProjectMobileAddImgs from './project-add-mobile-imgs';
 
 class Project extends Component {
 	constructor({ props, match }) {
@@ -14,7 +15,7 @@ class Project extends Component {
 	}
 
 	componentDidMount() {
-		window.scrollTo(0,0)
+		window.scrollTo(0, 0);
 	}
 
 	render() {
@@ -22,12 +23,10 @@ class Project extends Component {
 			<main className="project-page page-layout">
 				<ProjectMain project={this.project} />
 				<ProjectAddImgs project={this.project} />
+				<ProjectMobileAddImgs project={this.project} />
 			</main>
 		);
 	}
 }
-
-
-
 
 export default Project;

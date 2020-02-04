@@ -1,7 +1,7 @@
 import React from 'react';
 import gsap from 'gsap';
 
-import './cursor.sass'
+import './cursor.sass';
 
 class Cursor extends React.Component {
 	constructor(props) {
@@ -9,14 +9,14 @@ class Cursor extends React.Component {
 
 		this.state = {
 			mouseIsHover: false
-		}
+		};
 
 		this.cursor = React.createRef();
 		this.follower = React.createRef();
-		
+
 		this.cursorHoverElems = 'a, button, .hamburger';
 	}
-	
+
 	componentDidMount() {
 		// set the starting position of the cursor outside of the screen
 		let circlePos = { x: 0, y: 0 };
@@ -32,8 +32,8 @@ class Cursor extends React.Component {
 					x: circlePos.x,
 					y: circlePos.y
 				});
-				
-				gsap.to(this.follower.current, .4, {
+
+				gsap.to(this.follower.current, 0.4, {
 					scale: this.state.mouseIsHover ? 1.9 : 1
 				});
 
@@ -51,7 +51,7 @@ class Cursor extends React.Component {
 		});
 
 		// add listener to track the current mouse hover
-		document.addEventListener('mousemove', (e) => {
+		document.addEventListener('mousemove', e => {
 			if (e.target.closest(this.cursorHoverElems)) {
 				this.setState({ mouseIsHover: true });
 			} else {
@@ -68,6 +68,6 @@ class Cursor extends React.Component {
 			</div>
 		);
 	}
-};
+}
 
 export default Cursor;

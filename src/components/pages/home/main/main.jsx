@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { withRouter } from 'react-router-dom';
 import VanillaTilt from 'vanilla-tilt';
@@ -13,7 +13,7 @@ function scrollToNextSect() {
 	gsap.to(window, 1.2, {
 		scrollTo: window.innerHeight,
 		ease: 'power3.inOut'
-	})
+	});
 }
 
 function Main(props) {
@@ -30,35 +30,49 @@ function Main(props) {
 			speed: 1500,
 			glare: true,
 			axis: 'x',
-			"max-glare": .15,
+			'max-glare': 0.15
 		});
 
-		gsap.fromTo(
-			scrollDown.text.current, .7,
-			{ opacity: 0 },
-			{ opacity: 1, repeat: -1, repeatDelay: .4, yoyo: true }
-		)
-		
-		gsap.fromTo(
-			scrollDown.dot.current, .7,
-			{ y: 0 },
-			{ y: 3, repeat: -1, repeatDelay: .4, yoyo: true }
-		)
+		gsap.killTweensOf([
+			scrollDown.text.current,
+			scrollDown.icon.current,
+			scrollDown.dot.current
+		]);
 
 		gsap.fromTo(
-			scrollDown.icon.current, .7,
+			scrollDown.text.current,
+			0.7,
+			{ opacity: 0 },
+			{ opacity: 1, repeat: -1, repeatDelay: 0.4, yoyo: true }
+		);
+
+		gsap.fromTo(
+			scrollDown.dot.current,
+			0.7,
 			{ y: 0 },
-			{ y: 5, repeat: -1, repeatDelay: .4, yoyo: true }
-		)
+			{ y: 3, repeat: -1, repeatDelay: 0.4, yoyo: true }
+		);
+
+		gsap.fromTo(
+			scrollDown.icon.current,
+			0.7,
+			{ y: 0 },
+			{ y: 5, repeat: -1, repeatDelay: 0.4, yoyo: true }
+		);
 	}, [scrollDown]);
 
 	return (
-		<section className="main">
+		<section id="main" className="main">
 			<div className="container">
 				<div className="main__row">
 					<div className="main__col">
-						<h1 className="main__title">Hi, <br /> my name is <span>Hatam Soyunov</span>, <br /> I'm <span>front-end</span> developer</h1>
-						<h3 className="main__subtitle">with over <span>6 years</span> experience.</h3>
+						<h1 className="main__title">
+							Hi, <br /> my name is <span>Hatam Soyunov</span>, <br /> I'm{' '}
+							<span>front-end</span> developer
+						</h1>
+						<h3 className="main__subtitle">
+							with over <span>6 years</span> experience.
+						</h3>
 						<div className="main__lets">Let me show You...</div>
 						{/* <Link to="/about" className="btn" title="Read more about me">
 							<ReactSVG
@@ -70,25 +84,42 @@ function Main(props) {
 					</div>
 					<div className="main__col">
 						<div className="main__img-wrap" ref={mainImg}>
-							<img src={imgLayer1} alt="" onLoad={(e) => e.currentTarget.style.opacity = 1} />
-							<img src={imgLayer2} alt="" onLoad={(e) => e.currentTarget.style.opacity = 1} />
-							<img src={imgLayer3} alt="" onLoad={(e) => e.currentTarget.style.opacity = 1} />
+							<img
+								src={imgLayer1}
+								alt=""
+								onLoad={e => (e.currentTarget.style.opacity = 1)}
+							/>
+							<img
+								src={imgLayer2}
+								alt=""
+								onLoad={e => (e.currentTarget.style.opacity = 1)}
+							/>
+							<img
+								src={imgLayer3}
+								alt=""
+								onLoad={e => (e.currentTarget.style.opacity = 1)}
+							/>
 						</div>
 					</div>
 				</div>
-				<button className="scroll-btn scroll-btn--next" onClick={scrollToNextSect}>
+				<button
+					className="scroll-btn scroll-btn--next"
+					onClick={scrollToNextSect}
+				>
 					<div className="scroll-btn__icon" ref={scrollDown.icon}>
 						<img src={angleTop} alt="" />
 					</div>
 					<div className="scroll-btn__dot" ref={scrollDown.dot}></div>
-					<div className="scroll-btn__text">scroll down
-						<div className="scroll-btn__text-overlay" ref={scrollDown.text}>scroll down</div>
+					<div className="scroll-btn__text">
+						scroll down
+						<div className="scroll-btn__text-overlay" ref={scrollDown.text}>
+							scroll down
+						</div>
 					</div>
 				</button>
 			</div>
 		</section>
-	)
+	);
 }
 
 export default withRouter(Main);
-

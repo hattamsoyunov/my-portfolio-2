@@ -8,16 +8,15 @@ import store from 'store';
 import { toggleMenu } from './../../actions';
 
 import './menu.sass';
+import MenuLink from './menu-link';
 
 // Register ScrollToPlugin
 gsap.registerPlugin(ScrollToPlugin);
 
-// import MenuLink from './menu-link';
-
 class Menu extends React.Component {
 	constructor(props) {
 		super(props);
-		
+
 		this.state = {
 			menu: [
 				{
@@ -45,91 +44,137 @@ class Menu extends React.Component {
 					text: 'Contacts'
 				}
 			]
-		}
+		};
 
-		this.goToSect = this.goToSect.bind(this);
+		this.handleGoToSect = this.handleGoToSect.bind(this);
 
 		this.hoverItemText = React.createRef();
 		this.menuList = React.createRef();
 	}
 
-	goToSect(e) {
+	handleGoToSect(e) {
 		e.preventDefault();
-		const sect = e.currentTarget.getAttribute('href').replace('#', '.');
+		const sect = e.currentTarget.getAttribute('href').replace('/', '');
 
 		this.props.toggleMenu();
 
 		setTimeout(() => {
-			gsap.to(window, 1, { scrollTo: store.getState().mainSections.current.querySelector(sect).offsetTop, ease: 'expo.out' });
+			gsap.to(window, 1, {
+				scrollTo: store.getState().mainSections.current.querySelector(sect)
+					.offsetTop,
+				ease: 'expo.out'
+			});
 		}, 500);
+	}
+
+	autoScrollToSectOnHash() {
+		const prevLocation = this.props.location;
+		const currentLocation = this.props.history.location;
+
+		// Check the route direction: children page > home page and hash isn't empty
+		if (
+			prevLocation.pathname !== currentLocation.pathname &&
+			currentLocation.hash !== ''
+		) {
+			// Animate scroll to sect
+			setTimeout(() => {
+				gsap.to(window, 1, {
+					scrollTo: store
+						.getState()
+						.mainSections.current.querySelector(currentLocation.hash).offsetTop,
+					ease: 'expo.out'
+				});
+			}, 500);
+		}
 	}
 
 	componentDidMount() {
 		const items = this.menuList.current.querySelectorAll('.menu__link');
 		const hoveredText = this.hoverItemText.current;
 
-		items.forEach((el) => {
-			el.addEventListener('mouseenter', (e) => {
+		items.forEach(el => {
+			el.addEventListener('mouseenter', e => {
 				if (hoveredText.innerHTML !== e.target.innerHTML) {
 					hoveredText.innerHTML = e.target.innerHTML;
-					gsap.fromTo(hoveredText, .6, { y: '-55%', opacity: 0 }, { y: '-60%', opacity: .15 });
+					gsap.fromTo(
+						hoveredText,
+						0.6,
+						{ y: '-55%', opacity: 0 },
+						{ y: '-60%', opacity: 0.15 }
+					);
 				}
-			})
+			});
 		});
+
+		this.autoScrollToSectOnHash();
 	}
 
 	shouldComponentUpdate() {
-		let activeItem = this.state.menu.filter(item => item.link === this.props.location.pathname);
-		let activeItemText = activeItem.length === 0 ? "Home" : activeItem[0].text;
-		
+		let activeItem = this.state.menu.filter(
+			item => item.link === this.props.location.pathname
+		);
+		let activeItemText = activeItem.length === 0 ? 'Home' : activeItem[0].text;
+
 		setTimeout(() => {
 			this.hoverItemText.current.innerHTML = activeItemText;
 		}, 600);
-		
+
+		this.autoScrollToSectOnHash();
+
 		return true;
 	}
 
 	render() {
 		const showMenu = this.props.showMenu;
-		
+		const isHome = this.props.location.pathname === '/' ? true : false;
+
 		return (
 			<Transition
 				className="menu"
 				timeout={3000}
 				in={showMenu}
-				onEnter={(node) => {
-					TweenLite.staggerFromTo(node.querySelectorAll('.menu__item'), 1,
+				onEnter={node => {
+					TweenLite.staggerFromTo(
+						node.querySelectorAll('.menu__item'),
+						0.6,
 						{ y: 100, opacity: 0, ease: 'expo.in' },
-						{ y: 0, opacity: 1, ease: 'expo.out', delay: .8 }, 0.15
+						{ y: 0, opacity: 1, ease: 'expo.out', delay: 0.8 },
+						0.1
 					);
-					gsap.fromTo(node.querySelector('.menu__hovered'), 1,
+					gsap.fromTo(
+						node.querySelector('.menu__hovered'),
+						0.8,
 						{ x: '-50%', y: '-20%', opacity: 0 },
-						{ x: '-50%', y: '-60%', opacity: .15, ease: 'expo.out', delay: 1.4 }
+						{
+							x: '-50%',
+							y: '-60%',
+							opacity: 0.15,
+							ease: 'expo.out',
+							delay: 1.3
+						}
 					);
 				}}
 				addEndListener={(node, done) => {
 					gsap.to(node, 1, {
 						x: showMenu ? 0 : '100%',
-						ease: "power4.inOut",
+						ease: 'power4.inOut',
 						onComplete: done
 					});
-					
 				}}
 			>
 				<div>
 					<ul className="menu__list" ref={this.menuList}>
-						{this.state.menu.map(({ link, text}, index) => (
+						{this.state.menu.map(({ link, text }, index) => (
 							<li key={index} className="menu__item">
-								{/* <MenuLink exact={ index === 0 ? true : false} to={link}>
-									{text}
-								</MenuLink> */}
-								<a
-									href={link}
+								<MenuLink
+									to={link}
+									isHome={isHome}
 									className="menu__link"
-									onClick={this.goToSect}
+									goToSect={this.handleGoToSect}
+									toggleMenu={this.props.toggleMenu}
 								>
 									{text}
-								</a>
+								</MenuLink>
 							</li>
 						))}
 					</ul>
@@ -139,13 +184,13 @@ class Menu extends React.Component {
 					</div>
 				</div>
 			</Transition>
-		)
+		);
 	}
 }
 
 const mapStateToProps = state => {
 	return {
-		showMenu: state.showMenu,
+		showMenu: state.showMenu
 	};
 };
 
