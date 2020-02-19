@@ -9,6 +9,8 @@ import {
 	faCodepen,
 	faWhatsapp
 } from '@fortawesome/free-brands-svg-icons';
+import Reveal from 'components/reveal';
+import Color from 'components/colors';
 
 import './contacts.sass';
 
@@ -21,16 +23,13 @@ function Contacts() {
 				</h2>
 
 				<div className="contacts__row">
-					<h4 className="contacts__subtitle">Find me on:</h4>
+					<h4 className="contacts__subtitle">
+						<Reveal color={Color.c1}>Find me on:</Reveal>
+					</h4>
 
 					<ul className="contacts__list">
 						<li className="contacts__item">
-							<a
-								href="skype:hattam.soyunow"
-								className="contacts__link"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
+							<a href="skype:hattam.soyunow" className="contacts__link" target="_blank" rel="noopener noreferrer">
 								<FontAwesomeIcon icon={faSkype} />
 							</a>
 						</li>
@@ -45,12 +44,7 @@ function Contacts() {
 							</a>
 						</li>
 						<li className="contacts__item">
-							<a
-								href="https://wa.me/79038774141"
-								className="contacts__link"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
+							<a href="https://wa.me/79038774141" className="contacts__link" target="_blank" rel="noopener noreferrer">
 								<FontAwesomeIcon icon={faWhatsapp} />
 							</a>
 						</li>
@@ -85,12 +79,7 @@ function Contacts() {
 							</a>
 						</li>
 						<li className="contacts__item">
-							<a
-								href="https://codepen.io/hattam"
-								className="contacts__link"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
+							<a href="https://codepen.io/hattam" className="contacts__link" target="_blank" rel="noopener noreferrer">
 								<FontAwesomeIcon icon={faCodepen} />
 							</a>
 						</li>

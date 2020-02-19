@@ -1,0 +1,52 @@
+@import sass/variables.sass
+@import sass/mixins.sass
+
+.not-found
+	&__row
+		position: relative
+		display: flex
+		align-items: center
+		justify-content: center
+		text-align: center
+		padding-top: 17vh
+		+height_fill_with_footer
+		&::before
+			content: '404'
+			position: absolute
+			top: 51%
+			left: 50%
+			font-size: 510px
+			line-height: 510px
+			font-weight: 700
+			color: rgba($c5, .03)
+			transform: translate(-50%,-50%)
+			pointer-events: none
+			z-index: -1
+
+	&__title
+		display: flex
+		align-items: center
+		font-size: 110px
+		line-height: 110px
+		font-weight: 700
+		margin: 0 auto 20px
+	
+	&__desc
+		display: flex
+		align-items: center
+		font-size: 22px
+		line-height: 28px
+		margin-bottom: 120px
+
+	&__emoji
+		position: relative
+		width: 27px
+		height: 27px
+		margin-left: 3px
+		overflow: hidden
+		&-inner
+	
+	&__btn
+		font-size: 21px
+		line-height: 21px
+	

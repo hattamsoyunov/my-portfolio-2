@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Transition } from 'react-transition-group';
 import { gsap, TweenLite } from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
 import { withRouter } from 'react-router';
 import store from 'store';
-import { toggleMenu } from './../../actions';
+import { toggleMenu } from 'actions';
 
 import './menu.sass';
 import MenuLink from './menu-link';
@@ -13,7 +13,7 @@ import MenuLink from './menu-link';
 // Register ScrollToPlugin
 gsap.registerPlugin(ScrollToPlugin);
 
-class Menu extends React.Component {
+class Menu extends Component {
 	constructor(props) {
 		super(props);
 

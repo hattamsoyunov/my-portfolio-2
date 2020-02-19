@@ -1,5 +1,5 @@
-@import ../../sass/variables.sass
-@import ../../sass/mixins.sass
+@import sass/variables.sass
+@import sass/mixins.sass
 
 
 ////////// Menu
@@ -21,6 +21,9 @@
 	&__item
 		opacity: 0
 		margin-bottom: 20px
+		+xxl
+			margin-bottom: 13px
+			
 		&:last-child
 			margin-bottom: 0
 
@@ -32,6 +35,22 @@
 		color: $c5
 		letter-spacing: 1px
 		transition: color .6s ease
+		+xxxl
+			font-size: 44px
+			line-height: 58px
+		+xxl
+			font-size: 38px
+			line-height: 52px
+		+lg
+			font-size: 32px
+			line-height: 44px
+		+md
+			font-size: 30px
+			line-height: 41px
+			font-weight: 600
+		+xsm
+			font-size: 26px
+			line-height: 31px
 		&:before
 			content: ''
 			position: absolute
@@ -64,3 +83,13 @@
 		white-space: nowrap
 		opacity: 0
 		z-index: -1
+		+xxxl
+			height: 270px
+			font-size: 254px
+			line-height: 270px
+		+xxl
+			height: 210px
+			font-size: 194px
+			line-height: 210px
+		+lg
+			display: none

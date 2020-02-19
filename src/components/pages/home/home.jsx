@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import store from 'store';
 import gsap from 'gsap';
 import { connect } from 'react-redux';
@@ -12,7 +12,7 @@ import WorkExperience from './work-experience';
 import RecentlyProjects from './recently-projects';
 import Contacts from './contacts';
 
-class Home extends React.Component {
+class Home extends Component {
 	constructor(props) {
 		super(props);
 
@@ -31,9 +31,7 @@ class Home extends React.Component {
 			centerOffset = window.innerHeight / 2 - 100;
 
 			items.forEach((item, index) => {
-				let section = document.querySelector(
-					`.${item.getAttribute('sect-id')}`
-				);
+				let section = document.querySelector(`.${item.getAttribute('sect-id')}`);
 
 				if (
 					section.offsetTop - centerOffset <= scrollY &&
@@ -63,7 +61,7 @@ class Home extends React.Component {
 				<About />
 				<Skills />
 				<WorkExperience />
-				<RecentlyProjects limit={6} step={4} />
+				<RecentlyProjects />
 				<Contacts />
 			</main>
 		);

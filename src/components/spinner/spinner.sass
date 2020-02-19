@@ -1,0 +1,73 @@
+@import sass/variables.sass
+@import sass/mixins.sass
+
+
+.spinner-container
+	display: flex
+	align-items: center
+	justify-content: center
+	flex-direction: column
+	width: 100%
+	height: 150px
+
+.spinner
+	display: flex
+	align-items: center
+	
+	&__emoji
+		font-size: 50px
+		line-height: 50px
+		margin-bottom: 16px
+		+xxl
+			font-size: 40px
+			line-height: 40px
+			margin-bottom: 10px
+		+sm
+			font-size: 33px
+			line-height: 33px
+			margin-bottom: 10px
+	
+	&__title
+		font-size: 22px
+		line-height: 28px
+		margin-bottom: 15px
+		letter-spacing: 0px
+		margin-bottom: 0 !important
+		margin-right: 10px
+		+xxl
+			font-size: 20px
+			line-height: 26px
+		+sm
+			font-size: 18px
+			line-height: 24px
+			margin-right: 7px
+
+	&__dots
+		display: flex
+		align-items: center
+		margin-top: 6px
+	&__dot
+		width: 8px
+		height: 8px
+		border-radius: 50%
+		background: $c1
+		animation: bounce .4s ease infinite alternate
+		transform: translateY(-2px)
+		+sm
+			width: 6px
+			height: 6px
+		&:not(:last-child)
+			margin-right: 4px
+			+sm
+				margin-right: 3px
+
+		&:nth-child(2)
+			animation-delay: .1s
+		&:nth-child(3)
+			animation-delay: .2s
+
+	@keyframes bounce
+		0%
+			transform: translateY(-2px)
+		100%
+			transform: translateY(2px)

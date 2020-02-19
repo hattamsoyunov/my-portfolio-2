@@ -1,15 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import gsap from 'gsap';
 
 import './cursor.sass';
 
-class Cursor extends React.Component {
+class Cursor extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			mouseIsHover: false
-		};
+		this.mouseIsHover = false;
 
 		this.cursor = React.createRef();
 		this.follower = React.createRef();
@@ -18,56 +16,78 @@ class Cursor extends React.Component {
 	}
 
 	componentDidMount() {
-		// set the starting position of the cursor outside of the screen
-		let circlePos = { x: 0, y: 0 };
-		let mousePos = { x: 0, y: 0 };
+		if (!isTouchDevice()) {
+			// set the starting position of the cursor outside of the screen
+			let circlePos = { x: 0, y: 0 };
+			let mousePos = { x: 0, y: 0 };
 
-		gsap.to({}, 0.01, {
-			repeat: -1,
-			onRepeat: () => {
-				circlePos.x += (mousePos.x - circlePos.x) / 5;
-				circlePos.y += (mousePos.y - circlePos.y) / 5;
+			document.querySelector('html').classList.add('no-touch');
 
-				gsap.set(this.follower.current, {
-					x: circlePos.x,
-					y: circlePos.y
-				});
+			gsap.to({}, 0.01, {
+				repeat: -1,
+				onRepeat: () => {
+					circlePos.x += (mousePos.x - circlePos.x) / 5;
+					circlePos.y += (mousePos.y - circlePos.y) / 5;
 
-				gsap.to(this.follower.current, 0.4, {
-					scale: this.state.mouseIsHover ? 1.9 : 1
-				});
+					gsap.set(this.follower.current, {
+						x: circlePos.x,
+						y: circlePos.y
+					});
 
-				gsap.set(this.cursor.current, {
-					x: mousePos.x,
-					y: mousePos.y
-				});
-			}
-		});
+					gsap.to(this.follower.current, 0.4, {
+						scale: this.mouseIsHover ? 1.9 : 1
+					});
 
-		// add listener to track the current mouse position
-		document.addEventListener('mousemove', e => {
-			mousePos.x = e.clientX;
-			mousePos.y = e.clientY;
-		});
+					gsap.set(this.cursor.current, {
+						x: mousePos.x,
+						y: mousePos.y
+					});
+				}
+			});
 
-		// add listener to track the current mouse hover
-		document.addEventListener('mousemove', e => {
-			if (e.target.closest(this.cursorHoverElems)) {
-				this.setState({ mouseIsHover: true });
-			} else {
-				this.setState({ mouseIsHover: false });
-			}
-		});
+			// add listener to track the current mouse position
+			document.addEventListener('mousemove', e => {
+				mousePos.x = e.clientX;
+				mousePos.y = e.clientY;
+			});
+
+			// add listener to track the current mouse hover
+			document.addEventListener('mousemove', e => {
+				if (e.target.closest(this.cursorHoverElems)) {
+					this.mouseIsHover = true;
+				} else {
+					this.mouseIsHover = false;
+				}
+			});
+		}
 	}
 
 	render() {
 		return (
 			<div className="cursor">
-				<div className="cursor__dot" ref={this.cursor}></div>
-				<div className="cursor__circle" ref={this.follower}></div>
+				<div className="cursor__dot" ref={this.cursor} />
+				<div className="cursor__circle" ref={this.follower} />
 			</div>
 		);
 	}
 }
 
 export default Cursor;
+
+function isTouchDevice() {
+	const prefixes = ' -webkit- -moz- -o- -ms- '.split(' ');
+	const mq = function(query) {
+		return window.matchMedia(query).matches;
+	};
+
+	if ('ontouchstart' in window || window.DocumentTouch) {
+		return true;
+	}
+
+	// include the 'heartz' as a way to have a non matching MQ to help terminate the join
+	// https://git.io/vznFH
+	const query = ['(', prefixes.join('touch-enabled),('), 'heartz', ')'].join(
+		''
+	);
+	return mq(query);
+}

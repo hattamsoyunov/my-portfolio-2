@@ -1,10 +1,16 @@
-@import ../../../../sass/variables.sass
-@import ../../../../sass/mixins.sass
+@import sass/variables.sass
+@import sass/mixins.sass
 @import "bootstrap/scss/mixins/_grid.scss"
 
 
 .contacts
 	padding: 60px 0 130px
+	+xl
+		padding: 40px 0 100px
+	+lg
+		padding: 40px 0 80px
+	+sm
+		padding: 40px 0 60px
 
 	&__row
 		display: flex
@@ -14,24 +20,46 @@
 
 	&__title
 		margin-bottom: 40px
+		+lg
+			margin-bottom: 30px
+		+md
+			margin-bottom: 20px
+		+sm
+			margin-bottom: 10px
 	
 	&__subtitle
 		margin-bottom: 20px
 		color: $c1
+		+lg
+			margin-bottom: 15px
+		+md
+			margin-bottom: 12px
 
 	&__list
 		display: flex
 		align-items: center
+	
 	&__item
 		margin-right: 25px
+		+md
+			margin-right: 22px
+		+xsm
+			margin-right: 15px
 		&:last-child
 			margin-right: 0
+
 	&__link
 		display: block
 		font-size: 35px
 		line-height: 35px
 		color: $c5
 		transition: all .6s ease
+		+xl
+			font-size: 28px
+			line-height: 28px
+		+lg
+			font-size: 27px
+			line-height: 27px
 		&:hover
 			color: $c1
-			transform: translateY(-2px)
+			transform: translateY(-4px)

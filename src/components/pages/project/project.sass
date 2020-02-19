@@ -5,35 +5,94 @@
 
 .project-page
 
-
+	.spinner-container,
+	.error-indicator-container
+		+height_fill_with_footer
 
 
 .project
 	position: relative
-	padding-top: 200px
-	height: 100vh
+	// padding-top: 200px
+	// height: 100vh
+	+lg
+		padding-top: 130px
+		padding-bottom: 100px
+	+md
+		padding-bottom: 0
+	+sm
+		padding-top: 110px
+	+xsm
+		padding-top: 100px
+	
 	&__row
 		display: flex
 		flex-wrap: wrap
 		align-items: center
+		min-height: 755px
+		height: 100vh
+		+xxxl
+			max-height: 900px
+		+xl
+			min-height: 540px
+			max-height: 768px
+		+lg
+			max-height: none
+			height: auto
 	&__col
 		&:nth-child(1)
 			flex: 1 1 33%
 			max-width: 33%
-			padding-right: 70px
+			padding-right: 2vw
+			+xxl
+				flex: 1 1 37%
+				max-width: 37%
+				padding-right: 0
+			+lg
+				flex: 1 1 100%
+				max-width: 100%
+
+
 		&:nth-child(2)
 			flex: 1 1 67%
 			max-width: 67%
 			text-align: right
-	
+			+xxl
+				flex: 1 1 63%
+				max-width: 63%
+			+lg
+				flex: 1 1 100%
+				max-width: 100%
+				order: -1
+
 	&__title
-		font-size: 48px
-		line-height: 54px
+		font-size: 44px
+		line-height: 50px
 		font-weight: 700
 		margin-bottom: 0 !important
+		+xxxl
+			font-size: 40px
+			line-height: 46px
+		+xxl
+			font-size: 36px
+			line-height: 42px
+		+xl
+			font-size: 28px
+			line-height: 34px
+		+sm
+			font-size: 26px
+			line-height: 32px
+		+xsm
+			font-size: 24px
+			line-height: 30px
+
 	&__types
 		color: $c2
 		margin-bottom: 24px
+		+xxl
+			margin-bottom: 17px
+		+xl
+			font-size: 16px
+			line-height: 20px
 		ul
 			display: flex
 			flex-wrap: wrap
@@ -44,16 +103,38 @@
 					margin-right: 0
 	&__desc
 		margin-bottom: 33px
+		+xxl
+			font-size: 16px
+			line-height: 20px
+			margin-bottom: 22px
+		+xl
+			font-weight: normal
 
 	&__item
 		margin-bottom: 40px
+		+xxl
+			margin-bottom: 23px
+		+xl
+			margin-bottom: 16px
 		&-title
 			font-size: 24px
 			line-height: 31px
 			font-weight: 700
 			color: $c1
 			margin-bottom: 7px
+			+xxl
+				font-size: 20px
+				line-height: 27px
+				margin-bottom: 0
+			+xl
+				font-size: 18px
+				line-height: 25px
 		&-value
+			+xxl
+				font-size: 16px
+				line-height: 24px
+			+xl
+				font-weight: normal
 			ul
 				display: flex
 				flex-wrap: wrap
@@ -65,14 +146,24 @@
 
 	&__btn
 		margin-top: 40px
+		+xxl
+			margin-top: 20px
 
 	&__img
 		position: relative
 		display: flex
 		justify-content: flex-end
-		padding-right: 70px
+		padding-right: 3vw
 		transform-style: preserve-3d
 		transform: perspective(1000px)
+		+xxl
+			padding-right: 0
+		+lg
+			margin-bottom: 50px
+			will-change: transform; transform: perspective(1000px) rotateX(-4.56deg) rotateY(4.66deg) scale3d(1, 1, 1);
+			animation: project-img-tilt 6s ease-in-out 1s infinite
+		+md
+			justify-content: flex-start
 		&:hover
 			.project__img-main,
 			.project__img-mobile
@@ -86,6 +177,10 @@
 			transition: all .4s ease
 			overflow: hidden
 			z-index: 1
+			+xl
+				border-width: 5px
+			+md
+				border-width: 4px
 			&:after
 				content: 'Loading ...'
 				position: absolute
@@ -99,27 +194,88 @@
 				opacity: .5
 				z-index: -1
 		&-main
-			width: 905px
-			height: 514px
+			width: 47.136vw
+			height: 26.771vw
+			max-width: 905px
+			max-height: 514px
 			border-radius: 30px
+			+xl
+				border-radius: 20px
+			+lg
+				width: 550px
+				height: 309px
+			+md
+				width: 510px
+				height: 287px
+				border-radius: 15px
+			+sm
+				width: 88vw
+				height: 49.9vw
 			img
 				border-radius: 24px
+				+xl
+					border-radius: 13px
+				+md
+					border-radius: 10px
 		&-mobile
 			position: absolute
 			bottom: -61px
 			right: 13px
-			width: 213px
-			height: 369px
+			width: 11.094vw
+			height: 19.1vw
+			max-width: 213px
+			max-height: 367px
 			border-radius: 20px
 			transform: translateZ(30px) scale(0.97)
+			+xxl
+				height: 19vw
+				right: -23px
+			+xl
+				height: 18.79vw
+				border-radius: 12px
+			+lg
+				bottom: -25px
+				width: 130px
+				height: 223px
+			+md
+				right: 6px
+				width: 120px
+				height: 205px
+				border-radius: 9px
+			+sm
+				width: 22vw
+				height: 37.6vw
 			img
 				border-radius: 14px
+				+xl
+					border-radius: 5px
+				+md
+					border-radius: 2px
 
 		img
 			display: block
 			opacity: 0
 			transition: all .4s ease
 			z-index: -1
+
+@keyframes project-img-tilt
+	0%
+		will-change: transform; transform: perspective(1000px) rotateX(-4.56deg) rotateY(4.66deg) scale3d(1, 1, 1);
+	25%
+		will-change: transform; transform: perspective(1000px) rotateX(-4.28deg) rotateY(-4.2deg) scale3d(1, 1, 1);
+	50%
+		will-change: transform; transform: perspective(1000px) rotateX(5deg) rotateY(-4.53deg) scale3d(1, 1, 1);
+	75%
+		will-change: transform; transform: perspective(1000px) rotateX(4.7deg) rotateY(4.74deg) scale3d(1, 1, 1);
+	100%
+		will-change: transform; transform: perspective(1000px) rotateX(-4.56deg) rotateY(4.66deg) scale3d(1, 1, 1);
+		
+
+
+
+
+
+
 
 
 
@@ -128,6 +284,11 @@
 // project-add-imgs
 .project-add-imgs
 	padding: 120px 0 60px
+	+xl
+		padding: 100px 0 50px
+	+sm
+		padding: 100px 0 40px
+		
 	&__img
 		position: relative
 		max-width: 90%
@@ -139,6 +300,17 @@
 		transition: all .4s ease
 		overflow: hidden
 		z-index: 1
+		+xl
+			border-width: 5px
+			border-radius: 20px
+		+lg
+			margin: 0 auto 40px
+		+md
+			border-width: 4px
+			border-radius: 15px
+		+sm
+			max-width: 100%
+			margin: 0 auto 30px
 		&:after
 			content: 'Loading ...'
 			position: absolute
@@ -159,18 +331,48 @@
 			border-radius: 14px
 			transition: all .4s ease
 			opacity: 0
+			+xl
+				border-radius: 14px
+			+md
+				border-radius: 10px
 
 
+
+
+
+
+
+
+
+
+
+
+	
 
 // project-add-mobile-imgs
 .project-add-mobile-imgs
 	padding: 40px 0 70px
+	+lg
+		padding: 20px 0 60px
+	+md
+		padding: 10px 0 40px
+
 	&__row
 		+make-row()
 		justify-content: center
+		+sm
+			margin-left: -10px
+			margin-right: -10px
 	&__col
 		+make-col-ready()
 		+make-col(3)
+		+lg
+			+make-col(6)
+		+sm
+			padding-left: 10px
+			padding-right: 10px
+		+xsm
+			+make-col(12)
 	
 	&__title
 		text-align: center
@@ -186,6 +388,15 @@
 		transition: all .4s ease
 		overflow: hidden
 		z-index: 1
+		+xl
+			border-width: 5px
+			border-radius: 12px
+		+sm
+			border-width: 4px
+			border-radius: 9px
+			margin: 0 auto 20px
+		+xsm
+			max-width: 80%
 		&:after
 			content: 'Loading ...'
 			position: absolute
@@ -206,3 +417,7 @@
 			border-radius: 14px
 			transition: all .4s ease
 			opacity: 0
+			+xl
+				border-radius: 5px
+			+sm
+				border-radius: 2px

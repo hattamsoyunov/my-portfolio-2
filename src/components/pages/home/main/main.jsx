@@ -1,65 +1,31 @@
 import React, { useRef, useEffect } from 'react';
-import gsap from 'gsap';
 import { withRouter } from 'react-router-dom';
 import VanillaTilt from 'vanilla-tilt';
+
+import ScrollToNext from 'components/scroll-to-next';
+import Reveal from 'components/reveal';
+import Color from 'components/colors';
 
 import './main.sass';
 import imgLayer1 from 'img/main_img.jpg';
 import imgLayer2 from 'img/main_img_layer.png';
 import imgLayer3 from 'img/main_img_layer2.png';
-import angleTop from 'img/icons/angle_top.svg';
-
-function scrollToNextSect() {
-	gsap.to(window, 1.2, {
-		scrollTo: window.innerHeight,
-		ease: 'power3.inOut'
-	});
-}
+import imgLayer4 from 'img/main_img_layer3.png';
 
 function Main(props) {
 	const mainImg = useRef(null);
-	const scrollDown = {
-		icon: useRef(null),
-		dot: useRef(null),
-		text: useRef(null)
-	};
 
 	useEffect(() => {
-		VanillaTilt.init(mainImg.current, {
-			max: 6,
-			speed: 1500,
-			glare: true,
-			axis: 'x',
-			'max-glare': 0.15
-		});
-
-		gsap.killTweensOf([
-			scrollDown.text.current,
-			scrollDown.icon.current,
-			scrollDown.dot.current
-		]);
-
-		gsap.fromTo(
-			scrollDown.text.current,
-			0.7,
-			{ opacity: 0 },
-			{ opacity: 1, repeat: -1, repeatDelay: 0.4, yoyo: true }
-		);
-
-		gsap.fromTo(
-			scrollDown.dot.current,
-			0.7,
-			{ y: 0 },
-			{ y: 3, repeat: -1, repeatDelay: 0.4, yoyo: true }
-		);
-
-		gsap.fromTo(
-			scrollDown.icon.current,
-			0.7,
-			{ y: 0 },
-			{ y: 5, repeat: -1, repeatDelay: 0.4, yoyo: true }
-		);
-	}, [scrollDown]);
+		if (window.outerWidth > 1024) {
+			VanillaTilt.init(mainImg.current, {
+				max: 6,
+				speed: 1500,
+				glare: true,
+				axis: 'x',
+				'max-glare': 0.15
+			});
+		}
+	});
 
 	return (
 		<section id="main" className="main">
@@ -67,56 +33,36 @@ function Main(props) {
 				<div className="main__row">
 					<div className="main__col">
 						<h1 className="main__title">
-							Hi, <br /> my name is <span>Hatam Soyunov</span>, <br /> I'm{' '}
-							<span>front-end</span> developer
+							<Reveal delay={0.6} color={Color.c1}>
+								Hi,
+							</Reveal>
+							<Reveal delay={0.7} color={Color.c2}>
+								my name is <span>Hatam Soyunov</span>,
+							</Reveal>
+							<Reveal delay={0.6} color={Color.c1}>
+								I'm <span>front-end</span> developer
+							</Reveal>
 						</h1>
 						<h3 className="main__subtitle">
-							with over <span>6 years</span> experience.
+							<Reveal delay={0.8} color={Color.c2}>
+								with over <span>6 years</span> experience.
+							</Reveal>
 						</h3>
-						<div className="main__lets">Let me show You...</div>
-						{/* <Link to="/about" className="btn" title="Read more about me">
-							<ReactSVG
-								src={arrowRight}
-								className='icon main__icon'
-							/>
-							<span>Read more about me</span>
-						</Link> */}
+						<Reveal delay={0.9} color={Color.c5} direction="tb">
+							<div className="main__lets">Let me show You...</div>
+						</Reveal>
 					</div>
 					<div className="main__col">
 						<div className="main__img-wrap" ref={mainImg}>
-							<img
-								src={imgLayer1}
-								alt=""
-								onLoad={e => (e.currentTarget.style.opacity = 1)}
-							/>
-							<img
-								src={imgLayer2}
-								alt=""
-								onLoad={e => (e.currentTarget.style.opacity = 1)}
-							/>
-							<img
-								src={imgLayer3}
-								alt=""
-								onLoad={e => (e.currentTarget.style.opacity = 1)}
-							/>
+							<img src={imgLayer1} alt="" onLoad={e => (e.currentTarget.style.opacity = 1)} />
+							<img src={imgLayer2} alt="" onLoad={e => (e.currentTarget.style.opacity = 1)} />
+							<img src={imgLayer3} alt="" onLoad={e => (e.currentTarget.style.opacity = 1)} />
+							<img src={imgLayer4} alt="" onLoad={e => (e.currentTarget.style.opacity = 1)} />
 						</div>
 					</div>
 				</div>
-				<button
-					className="scroll-btn scroll-btn--next"
-					onClick={scrollToNextSect}
-				>
-					<div className="scroll-btn__icon" ref={scrollDown.icon}>
-						<img src={angleTop} alt="" />
-					</div>
-					<div className="scroll-btn__dot" ref={scrollDown.dot}></div>
-					<div className="scroll-btn__text">
-						scroll down
-						<div className="scroll-btn__text-overlay" ref={scrollDown.text}>
-							scroll down
-						</div>
-					</div>
-				</button>
+
+				<ScrollToNext nextSectSelector="#about" />
 			</div>
 		</section>
 	);

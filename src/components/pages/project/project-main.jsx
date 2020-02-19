@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { ReactSVG } from 'react-svg';
 import VanillaTilt from 'vanilla-tilt';
-import gsap from 'gsap';
 
+import ScrollToNext from 'components/scroll-to-next';
 import arrowRight from 'img/icons/arrow_right.svg';
-import angleTop from 'img/icons/angle_top.svg';
 
 class ProjectMain extends Component {
 	constructor(props) {
@@ -14,20 +13,15 @@ class ProjectMain extends Component {
 		this.mainImg = React.createRef();
 	}
 
-	scrollNext() {
-		gsap.to(window, 1.2, {
-			scrollTo: window.innerHeight,
-			ease: 'power3.inOut'
-		});
-	}
-
 	perspectiveCard() {
-		var mainImg = this.mainImg.current;
+		if (window.outerWidth > 1024) {
+			var mainImg = this.mainImg.current;
 
-		VanillaTilt.init(mainImg, {
-			max: 5,
-			speed: 2000
-		});
+			VanillaTilt.init(mainImg, {
+				max: 5,
+				speed: 2000
+			});
+		}
 	}
 
 	componentDidUpdate() {
@@ -39,16 +33,7 @@ class ProjectMain extends Component {
 	}
 
 	render() {
-		const {
-			title,
-			types,
-			desc,
-			client,
-			toolsList,
-			link,
-			slug,
-			addImagesQty
-		} = this.props.project;
+		const { title, types, desc, client, toolsList, link, slug, addImagesQty } = this.props.project;
 
 		return (
 			<section className="project">
@@ -81,13 +66,8 @@ class ProjectMain extends Component {
 								</div>
 							</div>
 
-							<a
-								href={link}
-								className="btn project__btn"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<ReactSVG src={arrowRight} className="icon main__icon" />
+							<a href={link} className="btn project__btn" target="_blank" rel="noopener noreferrer">
+								<ReactSVG src={arrowRight} className="icon icon--left icon--arrow-right main__icon" />
 								<span>Visit site</span>
 							</a>
 						</div>
@@ -114,20 +94,7 @@ class ProjectMain extends Component {
 						</div>
 					</div>
 
-					{addImagesQty > 0 ? (
-						<button
-							className="scroll-btn scroll-btn--next"
-							onClick={this.scrollNext}
-						>
-							<div className="scroll-btn__icon">
-								<img src={angleTop} alt="" />
-							</div>
-							<div className="scroll-btn__dot"></div>
-							<div className="scroll-btn__text">scroll down</div>
-						</button>
-					) : (
-						false
-					)}
+					{addImagesQty > 0 && window.outerWidth >= 768 ? <ScrollToNext nextSectSelector=".project-add-imgs" /> : false}
 				</div>
 			</section>
 		);

@@ -5,6 +5,14 @@
 
 .about
 	padding: 100px 0 60px
+	+xl
+		padding: 70px 0 40px
+
+	&__title
+		+lg
+			margin-bottom: 30px
+		+md
+			margin-bottom: 22px
 
 	&__content
 		max-width: 1140px
@@ -13,27 +21,55 @@
 		line-height: 33px
 		font-weight: 400
 		color: rgba(#fff, .9)
+		+xl
+			font-size: 22px
+			line-height: 29px
+		+lg
+			font-size: 20px
+			line-height: 25px
+		+md
+			font-size: 18px
+			line-height: 23px
+		+xsm
+			font-size: 16px
+			line-height: 21px
 
 		h4
 			color: $c1
 
 		ul
+			padding-left: 14px
 			li
 				position: relative
 				padding-left: 23px
 				margin-bottom: 8px
+				+md
+					margin-bottom: 10px
+					padding-left: 20px
+				+sm
+					margin-bottom: 9px
+					line-height: 20px
 				&:before
 					content: ''
 					position: absolute
-					top: 13px
+					top: 15px
 					left: 0
 					width: 6px
 					height: 6px
 					border-radius: 50%
 					background: $c1
+					+lg
+						top: 10px
+					+md
+						top: 9px
+					+sm
+						top: 8px
 
 		strong
 			font-weight: 600
+
+		span
+			color: $c1
 
 		a
 			position: relative
@@ -50,3 +86,12 @@
 			&:hover
 				&:before
 					width: 100%
+	
+	&__group
+		&.init
+			opacity: 0
+			transform: translateY(40px)
+			transition: all .4s ease .2s
+		&.in
+			opacity: 1
+			transform: translateY(0)

@@ -1,5 +1,5 @@
-@import ../../sass/variables.sass
-@import ../../sass/mixins.sass
+@import sass/variables.sass
+@import sass/mixins.sass
 
 .left-bar
 	position: fixed
@@ -12,9 +12,22 @@
 	align-items: flex-start
 	justify-content: space-between
 	padding: 5vh 0 5vh 2.6vw
-	z-index: 11
+	z-index: 12
+	+xl
+		width: 9vw
+		padding: 3vh 0 3vh 2vw
+	+lg
+		width: 13vw
+		padding: 25px 0 25px 25px
+	+md
+		width: 0
+		padding: 20px 0 20px 15px
 
 	&__logo
+		&:focus
+			outline: none
+		+lg
+			min-width: 92px
 		img
 
 	&__designed
@@ -23,5 +36,18 @@
 		span
 			display: block
 			width: 145px
-			margin-left: -66px
+			margin-left: -49px
 			transform: rotate(-90deg)
+		+xxl
+			font-size: 16px
+			span
+				margin-left: -50px
+		+xl
+			font-size: 14px
+			span
+				margin-left: -60px
+		+md
+			display: none
+	
+	&__back-btn
+		margin-top: 30px

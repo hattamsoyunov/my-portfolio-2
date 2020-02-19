@@ -1,5 +1,5 @@
-@import ../../sass/variables.sass
-@import ../../sass/mixins.sass
+@import sass/variables.sass
+@import sass/mixins.sass
 @import ../../sass/hamburgers/hamburgers.scss
 
 
@@ -15,6 +15,34 @@
 	justify-content: space-between
 	padding: 5vh 2.6vw 5vh 0
 	z-index: 11
+	+xl
+		width: 9vw
+		padding: 3vh 2vw 3vh 0
+	+lg
+		width: 13vw
+		padding: 25px 25px 25px 0
+	+md
+		width: 13vw
+		padding: 17px 15px 20px 0
+	
+
+
+
+.header-layer
+	position: fixed
+	top: 0
+	right: 0
+	width: 100%
+	height: 63px
+	background: rgba($c0, .8)
+	opacity: 0
+	visibility: hidden
+	transition: all .4s ease
+	&--visible
+		opacity: 1
+		visibility: visible
+
+
 
 
 ////////// Indicator
@@ -25,6 +53,8 @@
 	transform: rotate(-90deg) translateY(51px)
 	transition: all .6s ease
 	overflow: hidden
+	+md
+		display: none
 	&__list
 		transition: all .4s ease
 
@@ -35,11 +65,18 @@
 		line-height: 20px
 		text-align: center
 		height: 25px
+		+xxl
+			font-size: 16px
+			line-height: 18px
+
+
 
 
 ////////// Hamburger
 .hamburger
 	margin-top: 5px
+	+xl
+		width: 26px
 	&:focus
 		outline: none
 	&-inner,
@@ -47,27 +84,45 @@
 	&-inner:after
 		transition: all .4s ease !important
 
+	&-box
+		+xl
+			width: 26px
+
 
 .hamburger:not(.is-active)
 	.hamburger-inner
+		+xl
+			width: 26px
 		&:before
 			width: 18px
 			left: auto
 			right: 0
+			+xl
+				width: 16px
+
 		&:after
 			width: 24px
 			left: auto
 			right: 0
-	
+			+xl
+				width: 21px
+
 	&:hover
 		.hamburger-inner
+			width: 30px
+			+xl
+				width: 26px
 			&:before,
 			&:after
 				width: 30px
+				+xl
+					width: 26px
 
 
 ////////// Socs
 .socs
+	+md
+		display: none
 	&__list
 		display: flex
 		flex-direction: column
@@ -82,3 +137,9 @@
 		transition: all .4s ease
 		&:hover
 			color: $c1
+		+xxl
+			font-size: 22px
+			line-height: 22px
+		+xl
+			font-size: 20px
+			line-height: 20px

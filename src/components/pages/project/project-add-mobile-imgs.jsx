@@ -6,8 +6,8 @@ function ProjectAddMobileImgs(props) {
 
 	for (let i = 0; i < props.project.addMobileImagesQty; i++) {
 		images.push(
-			<div className="project-add-mobile-imgs__col">
-				<div key={i} className="project-add-mobile-imgs__img">
+			<div key={i} className="project-add-mobile-imgs__col">
+				<div className="project-add-mobile-imgs__img">
 					<img
 						src={`../images/projects/${props.project.slug}/add_img_${props
 							.project.addImagesQty +
