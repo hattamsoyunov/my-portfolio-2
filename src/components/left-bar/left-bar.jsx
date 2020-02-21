@@ -63,7 +63,7 @@ function BackBtn() {
 function LeftBar(props) {
 	const isHome = props.location.pathname === '/';
 	const logo = isHome ? <Logo type="button" /> : <Logo type="link" />;
-	const backBtn = !isHome ? <BackBtn /> : null;
+	const backBtn = !isHome && window.outerWidth > 768 ? <BackBtn /> : null;
 
 	const handleScrollToWithAnimation = () => {
 		gsap.to(window, 1, { scrollTo: 0, ease: 'expo.out' });

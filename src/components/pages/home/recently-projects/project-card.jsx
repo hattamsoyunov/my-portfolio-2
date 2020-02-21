@@ -7,8 +7,17 @@ import Colors from 'components/colors';
 import Reveal from 'components/reveal';
 
 import arrowRight from 'img/icons/arrow_right.svg';
+import { connect } from 'react-redux';
 
-function ProjectCard({ index, title, toolsList, slug }) {
+function ProjectImg({ slug }) {
+	return (
+		<div className="project-item__img">
+			<img src={`images/projects/${slug}/preview.jpg`} alt="" onLoad={e => (e.currentTarget.style.opacity = 1)} />
+		</div>
+	);
+}
+
+function ProjectCard({ index, title, toolsList, slug, projectsAnimDisabled }) {
 	const projectItem = useRef(null);
 
 	useEffect(() => {
@@ -29,14 +38,18 @@ function ProjectCard({ index, title, toolsList, slug }) {
 		}
 	}, [projectItem]);
 
+	const projectImg = projectsAnimDisabled ? (
+		<ProjectImg slug={slug} />
+	) : (
+		<Reveal delay={0} color={Colors.c2}>
+			<ProjectImg slug={slug} />
+		</Reveal>
+	);
+
 	return (
 		<div className="recently-projects__col">
-			<div className="project-item" ref={projectItem}>
-				<Reveal delay={0} color={Colors.c2}>
-					<div className="project-item__img">
-						<img src={`images/projects/${slug}/preview.jpg`} alt="" onLoad={e => (e.currentTarget.style.opacity = 1)} />
-					</div>
-				</Reveal>
+			<Link to={`/projects/${slug}`} className="project-item" ref={projectItem}>
+				{projectImg}
 
 				<div className="project-item__info">
 					<h3 className="project-item__title">
@@ -52,11 +65,11 @@ function ProjectCard({ index, title, toolsList, slug }) {
 						))}
 					</ul>
 
-					<Link to={`/projects/${slug}`} className="btn project-item__btn">
+					<div className="btn project-item__btn">
 						<ReactSVG src={arrowRight} className="icon icon--arrow-right" />
-					</Link>
+					</div>
 				</div>
-			</div>
+			</Link>
 		</div>
 	);
 }
@@ -68,4 +81,10 @@ ProjectCard.propTypes = {
 	slug: PropTypes.string.isRequired
 };
 
-export default ProjectCard;
+const mapStateToProps = ({ projectsAnimDisabled }) => {
+	return {
+		projectsAnimDisabled
+	};
+};
+
+export default connect(mapStateToProps, null)(ProjectCard);

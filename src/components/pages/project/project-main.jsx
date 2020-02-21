@@ -35,6 +35,9 @@ class ProjectMain extends Component {
 	render() {
 		const { title, types, desc, client, toolsList, link, slug, addImagesQty } = this.props.project;
 
+		const scrollToNext =
+			addImagesQty > 0 && window.outerWidth >= 768 ? <ScrollToNext nextSectSelector=".project-add-imgs" /> : null;
+
 		return (
 			<section className="project">
 				<div className="container">
@@ -94,7 +97,7 @@ class ProjectMain extends Component {
 						</div>
 					</div>
 
-					{addImagesQty > 0 && window.outerWidth >= 768 ? <ScrollToNext nextSectSelector=".project-add-imgs" /> : false}
+					{scrollToNext}
 				</div>
 			</section>
 		);

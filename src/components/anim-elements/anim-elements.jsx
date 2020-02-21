@@ -1,26 +1,23 @@
 import React, { useRef } from 'react';
 import { useScrollState } from 'scrollmonitor-hooks';
 import { useState } from 'react';
+import { connect } from 'react-redux';
 
 // Default state
 let toggleClass = 'init';
 
-function AnimElement({ children, className }) {
+function AnimElement({ children, className, pageIsLoaded }) {
 	const once = true; // Animation Repeat
-	const [animIn, setAnimIn] = useState(true);
 	const [animOut, setAnimOut] = useState(true);
 
 	const ref = useRef(null);
 	const scrollState = useScrollState(ref, -70);
 
-	if (scrollState.isInViewport && animIn) {
+	if (pageIsLoaded && scrollState.isInViewport) {
 		toggleClass = 'init in';
-		if (once) {
-			setAnimIn(false);
-		}
 	}
 
-	if (!scrollState.isInViewport && animOut) {
+	if (pageIsLoaded && !scrollState.isInViewport && animOut) {
 		toggleClass = 'init out';
 		if (once) {
 			setAnimOut(false);
@@ -38,4 +35,8 @@ AnimElement.defaultProps = {
 	className: ''
 };
 
-export default AnimElement;
+const mapStateToProps = ({ pageIsLoaded }) => {
+	return { pageIsLoaded };
+};
+
+export default connect(mapStateToProps, null)(AnimElement);

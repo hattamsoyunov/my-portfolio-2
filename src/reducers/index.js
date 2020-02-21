@@ -5,6 +5,7 @@ const initialState = {
 	sectIndicators: null,
 	projects: [],
 	projectsReady: false,
+	projectsAnimDisabled: false,
 	loading: true,
 	error: null,
 	limit: 6,
@@ -58,6 +59,7 @@ const reducer = (state = initialState, action) => {
 		case 'PROJECTS_LOAD_MORE':
 			return {
 				...state,
+				projectsAnimDisabled: true,
 				limit: action.payload
 			};
 

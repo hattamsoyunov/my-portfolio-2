@@ -9,6 +9,7 @@ const WatchedElement = ({ children, className, tl, pageIsLoaded }) => {
 	if (pageIsLoaded && scrollState.isInViewport) {
 		tl.play();
 	}
+	// console.log(disabled);
 
 	// if (!scrollState.isInViewport) {
 	// tl.seek(0);

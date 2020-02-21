@@ -66,8 +66,8 @@ function NotFound(props) {
 								</div>
 							</div>
 
-							<Link to="/" className="btn not-found__btn" data-wow-delay=".3s">
-								<ReactSVG src={arrowLeft} className="icon icon--arrow-left not-found__icon" />
+							<Link to="/" className="btn not-found__btn">
+								<ReactSVG src={arrowLeft} className="icon icon--left not-found__icon" />
 								<span>Go to home</span>
 							</Link>
 						</div>

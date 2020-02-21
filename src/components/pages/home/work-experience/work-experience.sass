@@ -220,23 +220,39 @@
 	&.init
 		transition: all .4s ease
 		opacity: 0
-		.timeline-item
-			&__date,
-			&__title,
-			&__company
-				opacity: 0
-				transform: translateX(50px)
-
-	&.out
+		&:nth-child(odd)
+			.timeline-item
+				&__date,
+				&__title,
+				&__company
+					opacity: 0
+					transform: translateX(-50px)
+		&:nth-child(even)
+			.timeline-item
+				&__date,
+				&__title,
+				&__company
+					opacity: 0
+					transform: translateX(50px)
+					+md
+						transform: translateX(-50px)
 
 	&.in
 		opacity: 1
-		.timeline-item
-			&__date,
-			&__title,
-			&__company
-				opacity: 1
-				transform: translateX(0)
+		&:nth-child(odd)
+			.timeline-item
+				&__date,
+				&__title,
+				&__company
+					opacity: 1
+					transform: translateX(0)
+		&:nth-child(even)
+			.timeline-item
+				&__date,
+				&__title,
+				&__company
+					opacity: 1
+					transform: translateX(0)
 
 	// Animation on hover
 	&:hover

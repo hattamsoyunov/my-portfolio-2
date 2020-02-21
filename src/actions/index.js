@@ -39,6 +39,10 @@ const projectsLoadMore = limit => ({
 	payload: limit
 });
 
+const projectsAnimDisabled = () => ({
+	type: 'PROJECTS_ANIM_DISABLED'
+});
+
 export {
 	pageIsLoaded,
 	is404Page,
@@ -48,5 +52,6 @@ export {
 	projectsRequested,
 	projectsLoaded,
 	projectsError,
-	projectsLoadMore
+	projectsLoadMore,
+	projectsAnimDisabled
 };

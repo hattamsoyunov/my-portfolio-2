@@ -23,7 +23,7 @@
 		"slug": "forthedigitals",
 		"title": "For The Digitals",
 		"types": ["#front-end"],
-		"desc": "Бизнес-сайт для компании \"For The Digitals\". For The Digitals - команды аутсорсинга и аутстаффинга по всему миру. Сайт полностью анимированный и отзывчивый к курсору.",
+		"desc": "Business website for company \"For The Digitals\". For The Digitals - outsourcing and outstaffing teams worldwide. The site is fully animated and responsive to the cursor.",
 		"client": "Anton",
 		"toolsList": [
 			"#jq",
