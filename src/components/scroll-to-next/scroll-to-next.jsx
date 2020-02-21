@@ -22,33 +22,15 @@ export default function ScrollToNext({ nextSectSelector }) {
 	useEffect(() => {
 		gsap.killTweensOf([btn.text.current, btn.icon.current, btn.dot.current]);
 
-		gsap.fromTo(
-			btn.text.current,
-			0.7,
-			{ opacity: 0 },
-			{ opacity: 1, repeat: -1, repeatDelay: 0.4, yoyo: true }
-		);
+		gsap.fromTo(btn.text.current, 0.7, { opacity: 0 }, { opacity: 1, repeat: -1, repeatDelay: 0.4, yoyo: true });
 
-		gsap.fromTo(
-			btn.dot.current,
-			0.7,
-			{ y: 0 },
-			{ y: 3, repeat: -1, repeatDelay: 0.4, yoyo: true }
-		);
+		gsap.fromTo(btn.dot.current, 0.7, { y: 0 }, { y: 3, repeat: -1, repeatDelay: 0.4, yoyo: true });
 
-		gsap.fromTo(
-			btn.icon.current,
-			0.7,
-			{ y: 0 },
-			{ y: 5, repeat: -1, repeatDelay: 0.4, yoyo: true }
-		);
+		gsap.fromTo(btn.icon.current, 0.7, { y: 0 }, { y: 5, repeat: -1, repeatDelay: 0.4, yoyo: true });
 	}, [btn]);
 
 	return (
-		<button
-			className="scroll-btn scroll-btn--next"
-			onClick={() => scrollToNextSect(nextSectSelector)}
-		>
+		<button className="scroll-btn scroll-btn--next" onClick={() => scrollToNextSect(nextSectSelector)}>
 			<div className="scroll-btn__icon" ref={btn.icon}>
 				<img src={angleTop} alt="" />
 			</div>

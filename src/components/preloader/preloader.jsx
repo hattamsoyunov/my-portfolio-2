@@ -8,9 +8,7 @@ import './preloader.sass';
 import logo from 'img/logo.svg';
 
 function allowScroll() {
-	setTimeout(() => {
-		document.body.classList.add('is-load');
-	}, 500);
+	document.body.classList.add('is-load');
 }
 
 function Preloader(props) {

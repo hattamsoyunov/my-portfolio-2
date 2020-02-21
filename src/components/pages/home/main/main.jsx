@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import VanillaTilt from 'vanilla-tilt';
+import gsap from 'gsap';
 
 import ScrollToNext from 'components/scroll-to-next';
 import Reveal from 'components/reveal';
@@ -11,6 +12,13 @@ import imgLayer1 from 'img/main_img.jpg';
 import imgLayer2 from 'img/main_img_layer.png';
 import imgLayer3 from 'img/main_img_layer2.png';
 import imgLayer4 from 'img/main_img_layer3.png';
+
+function scrollNext(nextSectSelector) {
+	gsap.to(window, 1.2, {
+		scrollTo: document.querySelector(nextSectSelector).offsetTop,
+		ease: 'power3.inOut'
+	});
+}
 
 function Main(props) {
 	const mainImg = useRef(null);
@@ -49,7 +57,9 @@ function Main(props) {
 							</Reveal>
 						</h3>
 						<Reveal delay={0.9} color={Color.c5} direction="tb">
-							<div className="main__lets">Let me show You...</div>
+							<button className="main__lets" onClick={() => scrollNext('#about')}>
+								Let me show You...
+							</button>
 						</Reveal>
 					</div>
 					<div className="main__col">
