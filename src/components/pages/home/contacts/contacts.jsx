@@ -6,7 +6,7 @@ import {
 	faInstagram,
 	faYoutube,
 	faGithub,
-	faCodepen,
+	// faCodepen,
 	faWhatsapp
 } from '@fortawesome/free-brands-svg-icons';
 import Reveal from 'components/reveal';
@@ -78,11 +78,11 @@ function Contacts() {
 								<FontAwesomeIcon icon={faGithub} />
 							</a>
 						</li>
-						<li className="contacts__item">
+						{/* <li className="contacts__item">
 							<a href="https://codepen.io/hattam" className="contacts__link" target="_blank" rel="noopener noreferrer">
 								<FontAwesomeIcon icon={faCodepen} />
 							</a>
-						</li>
+						</li> */}
 					</ul>
 				</div>
 			</div>
