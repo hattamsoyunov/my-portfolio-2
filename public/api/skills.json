@@ -29,9 +29,9 @@
 		"percent": 95
 	},
 	{
-		"title": "MODX Revo",
-		"icon": "img/skills/modx.svg",
-		"percent": 65
+		"title": "GSAP 3",
+		"icon": "img/skills/gsap.svg",
+		"percent": 60
 	},
 	{
 		"title": "Figma",
@@ -44,6 +44,11 @@
 		"percent": 100
 	},
 	{
+		"title": "Illustrator",
+		"icon": "img/skills/illustrator.svg",
+		"percent": 85
+	},
+	{
 		"title": "Adobe XD",
 		"icon": "img/skills/xd.svg",
 		"percent": 90
@@ -54,8 +59,8 @@
 		"percent": 99
 	},
 	{
-		"title": "Illustrator",
-		"icon": "img/skills/illustrator.svg",
-		"percent": 85
+		"title": "MODX Revo",
+		"icon": "img/skills/modx.svg",
+		"percent": 65
 	}
 ]

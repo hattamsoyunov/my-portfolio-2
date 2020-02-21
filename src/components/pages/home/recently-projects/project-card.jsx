@@ -77,7 +77,7 @@ function ProjectCard({ index, title, toolsList, slug, projectsAnimDisabled }) {
 }
 
 ProjectCard.propTypes = {
-	index: PropTypes.string.isRequired,
+	index: PropTypes.any.isRequired,
 	title: PropTypes.string.isRequired,
 	toolsList: PropTypes.array.isRequired,
 	slug: PropTypes.string.isRequired
