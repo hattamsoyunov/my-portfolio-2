@@ -47,21 +47,23 @@ function NotFound(props) {
 				<div className="container">
 					<div className="row not-found__row">
 						<div className="col-12">
-							<h1 className="not-found__title" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-								<div ref={letter1}>4</div>
-								<div ref={letter2}>0</div>
-								<div ref={letter3}>4</div>
-							</h1>
-							<div className="not-found__desc">
-								Oops! Page not found
-								<div className="not-found__emoji">
-									<div className="not-found__emoji-inner" ref={emoji}>
-										<span role="img" aria-label="">
-											😕
-										</span>
-										<span role="img" aria-label="">
-											😲
-										</span>
+							<div className="not-found__block" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+								<h1 className="not-found__title">
+									<div ref={letter1}>4</div>
+									<div ref={letter2}>0</div>
+									<div ref={letter3}>4</div>
+								</h1>
+								<div className="not-found__desc">
+									Oops! Page not found
+									<div className="not-found__emoji">
+										<div className="not-found__emoji-inner" ref={emoji}>
+											<span role="img" aria-label="">
+												😕
+											</span>
+											<span role="img" aria-label="">
+												😲
+											</span>
+										</div>
 									</div>
 								</div>
 							</div>
