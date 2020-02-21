@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './project-add-imgs.sass';
+
 function ProjectAddImgs(props) {
 	const images = [];
 

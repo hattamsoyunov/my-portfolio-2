@@ -5,6 +5,7 @@ import VanillaTilt from 'vanilla-tilt';
 
 import ScrollToNext from 'components/scroll-to-next';
 import arrowRight from 'img/icons/arrow_right.svg';
+import './project-main.sass';
 
 class ProjectMain extends Component {
 	constructor(props) {

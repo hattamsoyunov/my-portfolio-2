@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './project-add-mobile-imgs.sass';
+
 function ProjectAddMobileImgs(props) {
 	const images = [];
 
@@ -9,10 +11,7 @@ function ProjectAddMobileImgs(props) {
 			<div key={i} className="project-add-mobile-imgs__col">
 				<div className="project-add-mobile-imgs__img">
 					<img
-						src={`../images/projects/${props.project.slug}/add_img_${props
-							.project.addImagesQty +
-							i +
-							1}.jpg`}
+						src={`../images/projects/${props.project.slug}/add_img_${props.project.addImagesQty + i + 1}.jpg`}
 						alt=""
 						onLoad={e => (e.currentTarget.style.opacity = 1)}
 					/>

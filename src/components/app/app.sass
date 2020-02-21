@@ -39,6 +39,7 @@ body
 	color: $c5
 	margin: 0
 	background: $c0
+	overflow: hidden
 	z-index: 1
 	&:before
 		content: ''
@@ -51,6 +52,8 @@ body
 		background-size: cover
 		opacity: 0.4
 		z-index: -1
+	&.is-load
+		overflow: auto
 
 button
 	font-family: $def_font

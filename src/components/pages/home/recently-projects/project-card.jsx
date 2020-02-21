@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { ReactSVG } from 'react-svg';
@@ -7,7 +8,8 @@ import Colors from 'components/colors';
 import Reveal from 'components/reveal';
 
 import arrowRight from 'img/icons/arrow_right.svg';
-import { connect } from 'react-redux';
+
+import './project-card.sass';
 
 function ProjectImg({ slug }) {
 	return (

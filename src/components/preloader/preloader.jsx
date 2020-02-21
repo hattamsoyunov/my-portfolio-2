@@ -7,6 +7,12 @@ import gsap from 'gsap';
 import './preloader.sass';
 import logo from 'img/logo.svg';
 
+function allowScroll() {
+	setTimeout(() => {
+		document.body.classList.add('is-load');
+	}, 500);
+}
+
 function Preloader(props) {
 	const { pageIsLoaded, is404Page } = props;
 	const preloader = useRef(null);
@@ -14,7 +20,7 @@ function Preloader(props) {
 
 	useEffect(() => {
 		const tl = gsap.timeline();
-		tl.to(progressLine.current, 0.6, { x: '-50%', delay: 0.4 });
+		tl.to(progressLine.current, 0.6, { x: '-50%', delay: 1 });
 
 		window.onload = () => {
 			if (is404Page) {
@@ -23,6 +29,7 @@ function Preloader(props) {
 					gsap.to(preloader.current, 1, { y: '-100%', ease: 'expo.inOut' });
 					gsap.to(preloader.current, 0, { autoAlpha: 0, delay: 1 });
 					pageIsLoaded();
+					allowScroll();
 				}, 1000);
 			} else {
 				setTimeout(() => {
@@ -32,6 +39,7 @@ function Preloader(props) {
 						gsap.to(preloader.current, 0, { autoAlpha: 0, delay: 1 });
 
 						pageIsLoaded();
+						allowScroll();
 					}, 1400);
 				}, 600);
 			}
