@@ -1,4 +1,23 @@
 [{
+		"id": "proj_013",
+		"slug": "filshop",
+		"title": "FILSHOP",
+		"types": ["#front-end #back-end"],
+		"desc": "Online store with t-shirts in the web design theme - FILSHOP. CMS system - MODX Revo",
+		"client": "Sofya - Filippova Design",
+		"toolsList": [
+			"#jq",
+			"#pug",
+			"#sass",
+			"#modx",
+			"#bootstrapgrid",
+			"#flexbox"
+		],
+		"link": "https://filippovashop.ru/",
+		"addImagesQty": 3,
+		"addMobileImagesQty": 4
+	},
+	{
 		"id": "proj_012",
 		"slug": "lained",
 		"title": "Lained",
@@ -19,7 +38,7 @@
 		"addMobileImagesQty": 4
 	},
 	{
-		"id": "proj_010",
+		"id": "proj_011",
 		"slug": "forthedigitals",
 		"title": "For The Digitals",
 		"types": ["#front-end"],
@@ -36,6 +55,25 @@
 		"link": "https://www.forthedigital.com/",
 		"addImagesQty": 7,
 		"addMobileImagesQty": 4
+	},
+	{
+		"id": "proj_010",
+		"slug": "gatsby",
+		"title": "Gatsby",
+		"types": ["#front-end #back-end"],
+		"desc": "Gatsby - beauty salon of premium class. CMS system - MODX Revo",
+		"client": "Sofya - Filippova Design",
+		"toolsList": [
+			"#jq",
+			"#pug",
+			"#sass",
+			"#modx",
+			"#bootstrapgrid",
+			"#flexbox"
+		],
+		"link": "https://gatsby.moscow/",
+		"addImagesQty": 4,
+		"addMobileImagesQty": 3
 	},
 	{
 		"id": "proj_009",
