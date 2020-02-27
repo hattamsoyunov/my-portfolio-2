@@ -14,6 +14,11 @@
 		"percent": 80
 	},
 	{
+		"title": "TypeScript",
+		"icon": "img/skills/typescript.svg",
+		"percent": 30
+	},
+	{
 		"title": "React.js (Redux)",
 		"icon": "img/skills/reactjs.svg",
 		"percent": 65

@@ -2,14 +2,16 @@
 		"id": "proj_013",
 		"slug": "filshop",
 		"title": "FILSHOP",
-		"types": ["#front-end #back-end"],
+		"types": ["#front-end", "#back-end"],
 		"desc": "Online store with t-shirts in the web design theme - FILSHOP. CMS system - MODX Revo",
 		"client": "Sofya - Filippova Design",
 		"toolsList": [
 			"#jq",
+			"#modx",
+			"#swiper",
+			"#fancybox",
 			"#pug",
 			"#sass",
-			"#modx",
 			"#bootstrapgrid",
 			"#flexbox"
 		],
@@ -60,7 +62,7 @@
 		"id": "proj_010",
 		"slug": "gatsby",
 		"title": "Gatsby",
-		"types": ["#front-end #back-end"],
+		"types": ["#front-end", "#back-end"],
 		"desc": "Gatsby - beauty salon of premium class. CMS system - MODX Revo",
 		"client": "Sofya - Filippova Design",
 		"toolsList": [
@@ -74,6 +76,26 @@
 		"link": "https://gatsby.moscow/",
 		"addImagesQty": 4,
 		"addMobileImagesQty": 3
+	},
+	{
+		"id": "proj_005",
+		"slug": "luxury-marketing",
+		"title": "Luxury Marketing",
+		"types": ["#front-end"],
+		"desc": "Business site  with \"fullpage scroll\" for the marketing agency \"Luxury Digital Marketing\"",
+		"client": "Web studio \"Lained\"",
+		"toolsList": [
+			"#jq",
+			"#fullpagejs",
+			"#owlcarousel",
+			"#pug",
+			"#sass",
+			"#bootstrapgrid",
+			"#flexbox"
+		],
+		"link": "http://digitalluxmarketing.com/",
+		"addImagesQty": 6,
+		"addMobileImagesQty": 2
 	},
 	{
 		"id": "proj_009",
@@ -120,6 +142,27 @@
 		"addMobileImagesQty": 7
 	},
 	{
+		"id": "proj_015",
+		"slug": "filschool",
+		"title": "FILSCHOOL",
+		"types": ["#front-end", "#back-end"],
+		"desc": "Business site for courses on web design \"FILSCHOOL\"",
+		"client": "Sofya - Filippova Design",
+		"toolsList": [
+			"#jq",
+			"#modx",
+			"#owlcarousel",
+			"#fancybox",
+			"#pug",
+			"#sass",
+			"#bootstrapgrid",
+			"#flexbox"
+		],
+		"link": "https://filschool.ru/",
+		"addImagesQty": 6,
+		"addMobileImagesQty": 6
+	},
+	{
 		"id": "proj_007",
 		"slug": "impecco",
 		"title": "Impecco",
@@ -140,6 +183,27 @@
 		"addMobileImagesQty": 5
 	},
 	{
+		"id": "proj_014",
+		"slug": "azago",
+		"title": "Azago",
+		"types": ["#design", "#front-end", "#back-end"],
+		"desc": "Business site for the 3D visualization and animation - \"Azago\"",
+		"client": "Bayram Berkeliyev",
+		"toolsList": [
+			"#jq",
+			"#pannellum",
+			"#masonry",
+			"#fancybox",
+			"#pug",
+			"#sass",
+			"#bootstrapgrid",
+			"#flexbox"
+		],
+		"link": "https://azago.pro/",
+		"addImagesQty": 5,
+		"addMobileImagesQty": 5
+	},
+	{
 		"id": "proj_006",
 		"slug": "dss-corp",
 		"title": "DSS Corp",
@@ -157,26 +221,6 @@
 		"link": "https://dss.group/",
 		"addImagesQty": 0,
 		"addMobileImagesQty": 0
-	},
-	{
-		"id": "proj_005",
-		"slug": "luxury-marketing",
-		"title": "Luxury Marketing",
-		"types": ["#front-end"],
-		"desc": "Business site  with \"fullpage scroll\" for the marketing agency \"Luxury Digital Marketing\"",
-		"client": "Web studio \"Lained\"",
-		"toolsList": [
-			"#jq",
-			"#fullpagejs",
-			"#owlcarousel",
-			"#pug",
-			"#sass",
-			"#bootstrapgrid",
-			"#flexbox"
-		],
-		"link": "http://digitalluxmarketing.com/",
-		"addImagesQty": 6,
-		"addMobileImagesQty": 2
 	},
 	{
 		"id": "proj_004",
@@ -228,7 +272,14 @@
 		"types": ["#front-end"],
 		"desc": "Online store of home goods, html/css code developed for CMS Bitrix",
 		"client": "Web studio \"Lained\"",
-		"toolsList": ["#jq", "#owlcarousel", "#sass", "#bootstrapgrid", "#flexbox"],
+		"toolsList": [
+			"#jq",
+			"#bitrix",
+			"#owlcarousel",
+			"#sass",
+			"#bootstrapgrid",
+			"#flexbox"
+		],
 		"link": "https://projects.hattam.ru/homefash/",
 		"addImagesQty": 7,
 		"addMobileImagesQty": 0

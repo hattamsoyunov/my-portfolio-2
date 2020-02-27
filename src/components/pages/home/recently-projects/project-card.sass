@@ -23,6 +23,10 @@
 	+xsm
 		max-width: 183px
 	
+	&:hover
+		.project-item__tool-item
+			color: rgba($c5, .7)
+	
 	&__img
 		position: relative
 		// width: 455px
@@ -162,14 +166,17 @@
 			margin-bottom: 15px
 	
 	&__tool-item
-		color: $c2
-		margin-right: 10px
+		color: rgba($c5, .5)
+		font-size: 17px
+		line-height: 21px
+		margin-right: 8px
+		transition: all .4s ease
 		+xxl
-			font-size: 17px
-			line-height: 21px
-		+sm
 			font-size: 14px
 			line-height: 18px
+		+sm
+			font-size: 13px
+			line-height: 17px
 			margin-right: 6px
 			&:last-child
 				display: none

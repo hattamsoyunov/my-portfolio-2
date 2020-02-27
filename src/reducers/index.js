@@ -8,7 +8,7 @@ const initialState = {
 	projectsAnimDisabled: false,
 	loading: true,
 	error: null,
-	limit: 10,
+	limit: 12,
 	step: 4
 };
 

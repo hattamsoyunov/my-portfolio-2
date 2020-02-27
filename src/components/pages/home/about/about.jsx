@@ -47,6 +47,7 @@ function About(props) {
 							Little experience Meteor.js + !React.js + storybook + MongoDB - a site for renting real estate in New
 							York.
 						</li>
+						<li>Basic knowledge of TypeScript.</li>
 						<li>
 							Advanced level HTML (HTML5 API, good understanding of semantic tags) / CSS (flexbox, grid, advanced css
 							animations) / JS (JQ, ES6).
