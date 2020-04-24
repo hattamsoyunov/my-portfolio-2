@@ -30,12 +30,17 @@
 		padding-right: 20px
 		+lg
 			+make-col(12)
+		+md
+			display: flex
+			justify-content: center
 
 		&--offset
 			display: flex
 			justify-content: flex-end
 			+xl
 				justify-content: flex-start
+			+md
+				justify-content: center
 			.project-item
 				// +xxl
 				// 	margin-right: 0.2vw

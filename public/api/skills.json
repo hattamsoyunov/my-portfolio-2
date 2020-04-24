@@ -1,71 +1,72 @@
-[{
-		"title": "HTML",
-		"icon": "img/skills/html5.svg",
-		"percent": 100
-	},
-	{
-		"title": "CSS",
-		"icon": "img/skills/css3.svg",
-		"percent": 100
-	},
-	{
-		"title": "JavaScript",
-		"icon": "img/skills/javascript.svg",
-		"percent": 80
-	},
-	{
-		"title": "TypeScript",
-		"icon": "img/skills/typescript.svg",
-		"percent": 30
-	},
-	{
-		"title": "React.js (Redux)",
-		"icon": "img/skills/reactjs.svg",
-		"percent": 65
-	},
-	{
-		"title": "Meteor.js",
-		"icon": "img/skills/meteorjs.svg",
-		"percent": 20
-	},
-	{
-		"title": "jQuery",
-		"icon": "img/skills/jquery.svg",
-		"percent": 95
-	},
-	{
-		"title": "GSAP 3",
-		"icon": "img/skills/gsap.svg",
-		"percent": 60
-	},
-	{
-		"title": "Figma",
-		"icon": "img/skills/figma.svg",
-		"percent": 90
-	},
-	{
-		"title": "Zeplin",
-		"icon": "img/skills/zeplin.svg",
-		"percent": 100
-	},
-	{
-		"title": "Illustrator",
-		"icon": "img/skills/illustrator.svg",
-		"percent": 85
-	},
-	{
-		"title": "Adobe XD",
-		"icon": "img/skills/xd.svg",
-		"percent": 90
-	},
-	{
-		"title": "Photoshop",
-		"icon": "img/skills/photoshop.svg",
-		"percent": 99
-	},
-	{
-		"title": "MODX Revo",
-		"icon": "img/skills/modx.svg",
-		"percent": 65
-	}
+[
+    {
+        "title": "HTML",
+        "icon": "img/skills/html5.svg",
+        "percent": 100
+    },
+    {
+        "title": "CSS",
+        "icon": "img/skills/css3.svg",
+        "percent": 100
+    },
+    {
+        "title": "JavaScript",
+        "icon": "img/skills/javascript.svg",
+        "percent": 80
+    },
+    {
+        "title": "TypeScript",
+        "icon": "img/skills/typescript.svg",
+        "percent": 30
+    },
+    {
+        "title": "React.js (Redux & Mobx)",
+        "icon": "img/skills/reactjs.svg",
+        "percent": 65
+    },
+    {
+        "title": "Meteor.js",
+        "icon": "img/skills/meteorjs.svg",
+        "percent": 20
+    },
+    {
+        "title": "jQuery",
+        "icon": "img/skills/jquery.svg",
+        "percent": 95
+    },
+    {
+        "title": "GSAP 3",
+        "icon": "img/skills/gsap.svg",
+        "percent": 60
+    },
+    {
+        "title": "Figma",
+        "icon": "img/skills/figma.svg",
+        "percent": 90
+    },
+    {
+        "title": "Zeplin",
+        "icon": "img/skills/zeplin.svg",
+        "percent": 100
+    },
+    {
+        "title": "Illustrator",
+        "icon": "img/skills/illustrator.svg",
+        "percent": 85
+    },
+    {
+        "title": "Adobe XD",
+        "icon": "img/skills/xd.svg",
+        "percent": 90
+    },
+    {
+        "title": "Photoshop",
+        "icon": "img/skills/photoshop.svg",
+        "percent": 99
+    },
+    {
+        "title": "MODX Revo",
+        "icon": "img/skills/modx.svg",
+        "percent": 80
+    }
 ]
