@@ -15,14 +15,28 @@ function About(props) {
                     <p>
                         My name is <strong>Hatam!</strong> I have been working for more than
                         <strong> {yearCalc(2016)} years</strong> in <strong>front-end development </strong>
-                        with commercial projects and more than {yearCalc(2014)} years in web development in general. During all this time I
-                        managed to work in several web studios and freelance platforms, got a big experience in a team, extensive experience
-                        in working with clients, introduce a project from the beginning to the end.
+                        with commercial projects and more than <strong>{yearCalc(2014)} years</strong> in web development in general. During
+                        all this time I managed to work in several web studios and freelance platforms, got a big experience in a team,
+                        extensive experience in working with clients, introduce a project from the beginning to the end.
                     </p>
                     <p>
                         In 2019, I graduated from the university with a degree in marketing (I took extra courses in Internet marketing and
                         web design marketing). Now I go on studying for a master's degree in Human Resource management. My goal is to get a
                         certificate confirming my experience.
+                    </p>
+                    <p>
+                        In June 2020, I completed a course on <strong>React Native</strong> and received a{' '}
+                        <a
+                            href="https://www.udemy.com/certificate/UC-b8b2368f-3d4b-4c7c-87da-bdda3f6d838b/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            certificate
+                        </a>{' '}
+                        <span role="img" aria-label="">
+                            😎
+                        </span>
+                        . Currently I am practicing in developing mobile applications
                     </p>
                     <p>My technical English is good. I practice speaking, take courses. My language level is elementary.</p>
                     {/* <p>The last work place was web studio “Lained” in the position of “Head of Front-end development. "</p> */}
@@ -41,11 +55,12 @@ function About(props) {
                         </li>
                         <li>Creating responsive web applications.</li>
                         <li>
-                            Development on React.js (Hooks, Context, Redux, Formik, Transition Group, scrollmonitor). CSS, SASS, inline
-                            styles.
+                            Development on React / React Native (Mobx, Redux, Hooks, Context, Formik, Transition Group, scrollmonitor). CSS,
+                            SASS, inline styles.
                         </li>
+                        <li>Material UI</li>
                         <li>Little experience Meteor.js + !React.js + storybook + MongoDB - a site for renting real estate in New York.</li>
-                        <li>Basic knowledge of TypeScript.</li>
+                        <li>Good knowledge of TypeScript.</li>
                         <li>
                             Advanced level HTML (HTML5 API, good understanding of semantic tags) / CSS (flexbox, grid, advanced css
                             animations) / JS (JQ, ES6).
@@ -60,7 +75,7 @@ function About(props) {
                         <li>Extensive experience in using HTML preprocessor (template engine) - PUG and CSS preprocessor - SASS.</li>
                         <li>
                             Compiling and packing standard websites using my Gulp Builder -{' '}
-                            <a href="https://github.com/hattamsoyunov/start_dev" terget="_blank">
+                            <a href="https://github.com/hattamsoyunov/start_dev" terget="_blank" rel="noopener noreferrer">
                                 start_dev
                             </a>
                             .

@@ -12,17 +12,42 @@
     {
         "title": "JavaScript",
         "icon": "img/skills/javascript.svg",
-        "percent": 80
+        "percent": 90
     },
     {
         "title": "TypeScript",
         "icon": "img/skills/typescript.svg",
-        "percent": 30
+        "percent": 85
     },
     {
-        "title": "React.js (Redux & Mobx)",
+        "title": "React",
         "icon": "img/skills/reactjs.svg",
-        "percent": 80
+        "percent": 90
+    },
+    {
+        "title": "React Native",
+        "icon": "img/skills/reactjs.svg",
+        "percent": 60
+    },
+    {
+        "title": "Mobx",
+        "icon": "img/skills/mobx.svg",
+        "percent": 90
+    },
+    {
+        "title": "Redux",
+        "icon": "img/skills/redux.svg",
+        "percent": 60
+    },
+    {
+        "title": "Material UI",
+        "icon": "img/skills/material-ui.svg",
+        "percent": 100
+    },
+    {
+        "title": "GSAP 3",
+        "icon": "img/skills/gsap.svg",
+        "percent": 60
     },
     {
         "title": "Meteor.js",
@@ -32,17 +57,13 @@
     {
         "title": "jQuery",
         "icon": "img/skills/jquery.svg",
-        "percent": 95
+        "percent": 100
     },
-    {
-        "title": "GSAP 3",
-        "icon": "img/skills/gsap.svg",
-        "percent": 60
-    },
+
     {
         "title": "Figma",
         "icon": "img/skills/figma.svg",
-        "percent": 90
+        "percent": 95
     },
     {
         "title": "Zeplin",
